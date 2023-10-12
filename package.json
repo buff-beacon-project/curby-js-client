@@ -1,5 +1,5 @@
 {
-  "name": "@buff-beacon-project/client",
+  "name": "@buff-beacon-project/curby-client",
   "module": "./src/index.ts",
   "version": "0.0.2",
   "type": "module",
@@ -17,7 +17,7 @@
     "build:browser": "bun build ./src/index.ts --outdir ./dist --target browser --external '*' --entry-naming '[name].js'",
     "build": "npm run build:node && npm run build:browser",
     "prepublishOnly": "bun run build",
-    "release": "bunx bumpp && npm publish"
+    "release": "bunx bumpp --no-push"
   },
   "devDependencies": {
     "bun-types": "latest",
