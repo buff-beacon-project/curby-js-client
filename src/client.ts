@@ -2,7 +2,7 @@ import type { Source } from '@buff-beacon-project/twinejs/resolve/http'
 import type { Twine } from '@buff-beacon-project/twinejs/twine'
 import { HttpResolver } from '@buff-beacon-project/twinejs/resolve/http'
 import { getRandomness } from '@buff-beacon-project/twinejs/rand'
-import { createRandomness } from './randomness'
+import { Randomness, createRandomness } from './randomness'
 import { timeToNext, wait } from './timing'
 import CHAINS from './chains.json'
 import { PulseContent } from '@buff-beacon-project/twinejs'
@@ -21,6 +21,9 @@ export type WaitOptions = {
 export class Client {
   private _resolver: Source
   private _rngChainId: string
+  private _latest?: Twine<PulseContent>
+  private _prev?: Twine<PulseContent>
+  private _randomness?: Randomness
 
   static create(options?: ClientOptions) {
     return new Client(options)
@@ -43,18 +46,28 @@ export class Client {
     }
   }
 
-  async randomness(){
+  async refresh(){
     const { chain, latest, prev } = await this.fetchPulsePair()
+    this._latest = latest
+    this._prev = prev
     const randomness = await getRandomness(latest, chain, prev)
-    return createRandomness(randomness, latest.value.content.payload.timestamp)
+    const rand = createRandomness(randomness, latest.value.content.payload.timestamp)
+    this._randomness = rand
   }
 
-  async waitForNext(current?: Twine<PulseContent>, { signal, timeout }: WaitOptions = {}){
-    const chain = await this._resolver.chain(this._rngChainId)
-    if (!current){
-      const pulse = await chain.latest()
-      current = pulse
+  async randomness(){
+    if (this._randomness && timeToNext(this._randomness) > 0){
+      return this._randomness
     }
+    await this.refresh()
+    return this._randomness!
+  }
+
+  async waitForNext({ signal, timeout }: WaitOptions = {}){
+    if (!this._latest){
+      await this.refresh()
+    }
+    const current = this._latest!
     const nextIndex = current.value.content.index + 1
     const delay = timeToNext(current)
     if (delay > 0){
@@ -62,9 +75,9 @@ export class Client {
     }
     let start = Date.now()
     while (!signal?.aborted){
-      const res = await this.fetchPulsePair()
-      if (res.latest.value.content.index >= nextIndex){
-        return res
+      await this.refresh()
+      if (this._latest!.value.content.index >= nextIndex){
+        return this._randomness!
       }
       const elapsed = Date.now() - start
       if (timeout && elapsed > timeout){
@@ -75,16 +88,13 @@ export class Client {
   }
 
   async *watch(options?: WaitOptions){
-    let current: Twine<PulseContent> | undefined
     yield await this.randomness()
     while (!options?.signal?.aborted){
-      const res = await this.waitForNext(current, options)
+      const res = await this.waitForNext(options)
       if (!res){
         return
       }
-      const randomness = await getRandomness(res.latest, res.chain, res.prev)
-      yield createRandomness(randomness, res.latest.value.content.payload.timestamp)
-      current = res.latest
+      yield this._randomness!
     }
   }
 }
