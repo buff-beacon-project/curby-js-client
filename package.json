@@ -1,6 +1,7 @@
 {
   "name": "@buff-beacon-project/curby-client",
-  "module": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "version": "0.0.3",
   "type": "module",
   "exports": {
@@ -13,8 +14,8 @@
     }
   },
   "scripts": {
-    "build:node": "bun build ./src/index.ts --outdir ./dist --target node --external '*' --entry-naming '[name].mjs'",
-    "build:browser": "bun build ./src/index.ts --outdir ./dist --target browser --external '*' --entry-naming '[name].js'",
+    "build:node": "bun build ./src/index.ts --outdir ./dist --target node --external '@buff-beacon-project/twinejs' --external '@buff-beacon-project/rand-utils' --entry-naming '[name].mjs'",
+    "build:browser": "bun build ./src/index.ts --outdir ./dist --target browser --external '@buff-beacon-project/twinejs' --external '@buff-beacon-project/rand-utils' --entry-naming '[name].js'",
     "build": "npm run build:node && npm run build:browser",
     "prepublishOnly": "bun run build",
     "release": "bunx bumpp --no-push"
