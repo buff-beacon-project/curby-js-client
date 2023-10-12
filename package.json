@@ -1,7 +1,7 @@
 {
   "name": "@buff-beacon-project/client",
   "module": "./src/index.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "exports": {
     ".": {
@@ -27,7 +27,5 @@
     "@buff-beacon-project/rand-utils": "^0.0.1",
     "@buff-beacon-project/twinejs": "^0.1.17"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
