@@ -1,8 +1,10 @@
 import { PulseContent } from "@buff-beacon-project/twinejs"
 import { Twine } from "@buff-beacon-project/twinejs/twine"
 
+const PULSE_INTERVAL = 60000
+
 /**
- * Time until next pulse in milliseconds
+ * Time until next rng pulse in milliseconds
  */
 export const timeToNext = (obj: string | number | { timestamp: number } | Twine<PulseContent>) => {
   let timestamp: number
@@ -16,7 +18,7 @@ export const timeToNext = (obj: string | number | { timestamp: number } | Twine<
     timestamp = obj.timestamp
   }
   const now = Date.now()
-  return timestamp - now
+  return now - timestamp + PULSE_INTERVAL
 }
 
 export async function wait(dt: number, signal?: AbortSignal) {
