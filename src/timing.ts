@@ -18,7 +18,7 @@ export const timeToNext = (obj: string | number | { timestamp: number } | Twine<
     timestamp = obj.timestamp
   }
   const now = Date.now()
-  return now - timestamp + PULSE_INTERVAL
+  return timestamp + PULSE_INTERVAL - now
 }
 
 export async function wait(dt: number, signal?: AbortSignal) {
