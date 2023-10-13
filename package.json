@@ -16,7 +16,7 @@
   "scripts": {
     "build:node": "bun build ./src/index.ts --outdir ./dist --target node --external '@buff-beacon-project/twinejs' --external '@buff-beacon-project/rand-utils' --entry-naming '[name].mjs'",
     "build:browser": "bun build ./src/index.ts --outdir ./dist --target browser --external '@buff-beacon-project/twinejs' --external '@buff-beacon-project/rand-utils' --entry-naming '[name].js'",
-    "build": "npm run build:node && npm run build:browser",
+    "build": "bun run build:node && bun run build:browser",
     "prepublishOnly": "bun run build",
     "release": "bunx bumpp --no-push"
   },
