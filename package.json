@@ -10,23 +10,26 @@
       "browser": "./dist/index.js",
       "import": "./dist/index.mjs",
       "node": "./dist/index.mjs",
-      "bun": "./src/index.ts"
+      "bun": "./src/index.ts",
+      "types": "./src/index.ts"
     }
   },
   "scripts": {
-    "build:node": "bun build ./src/index.ts --outdir ./dist --target node --external '@buff-beacon-project/twinejs' --external '@buff-beacon-project/rand-utils' --entry-naming '[name].mjs'",
-    "build:browser": "bun build ./src/index.ts --outdir ./dist --target browser --external '@buff-beacon-project/twinejs' --external '@buff-beacon-project/rand-utils' --entry-naming '[name].js'",
-    "build": "bun run build:node && bun run build:browser",
+    "build:node": "esbuild ./src/index.ts --sourcemap=external --bundle --platform=node --packages=external --outfile=./dist/index.mjs",
+    "build:browser": "esbuild ./src/index.ts --sourcemap=external --bundle --platform=browser --global-name=Curby --outfile=./dist/index.js",
+    "build": "tsup",
     "prepublishOnly": "bun run build",
     "release": "bunx bumpp --no-push"
   },
   "devDependencies": {
     "bun-types": "latest",
+    "tsup": "^7.2.0",
     "typescript": "^5.0.0"
   },
-  "peerDependencies": {
+  "peerDependencies": {},
+  "dependencies": {
     "@buff-beacon-project/rand-utils": "^0.0.1",
-    "@buff-beacon-project/twinejs": "^0.1.17"
-  },
-  "dependencies": {}
+    "@twine-protocol/twine-core": "^0.0.1-alpha.1",
+    "@twine-protocol/twine-http-store": "^0.0.1-alpha.1"
+  }
 }

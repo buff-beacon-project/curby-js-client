@@ -1,11 +1,9 @@
-import type { Source } from '@buff-beacon-project/twinejs/resolve/http'
-import type { Twine } from '@buff-beacon-project/twinejs/twine'
-import { HttpResolver } from '@buff-beacon-project/twinejs/resolve/http'
-import { getRandomness } from '@buff-beacon-project/twinejs/rand'
+import { Pulse, Chain, Resolver, ChainResolver } from '@twine-protocol/twine-core'
+import { HttpStore } from '@twine-protocol/twine-http-store'
+import { getRandomness } from './extract-randomness'
 import { Randomness, createRandomness } from './randomness'
 import { timeToNext, wait } from './timing'
-import CHAINS from './chains.json'
-import { PulseContent } from '@buff-beacon-project/twinejs'
+import CHAINS from './chains'
 const CURBY_API_URL = 'https://api.entwine.me'
 
 export type ClientOptions = {
@@ -19,11 +17,11 @@ export type WaitOptions = {
 }
 
 export class Client {
-  private _resolver: Source
+  private _resolver: Resolver
   private _rngChainId: string
-  private _latest?: Twine<PulseContent>
-  private _prev?: Twine<PulseContent>
-  private _randomness?: Randomness
+  private _latest?: Pulse | null
+  private _prev?: Pulse | null
+  private _randomness?: Randomness | null
 
   static create(options?: ClientOptions) {
     return new Client(options)
@@ -32,13 +30,20 @@ export class Client {
   constructor(options?: ClientOptions) {
     const url = options?.url ?? CURBY_API_URL
     this._rngChainId = options?.chainId ?? CHAINS.rng
-    this._resolver = HttpResolver(url)
+    this._resolver = new HttpStore(url)
   }
 
   async fetchPulsePair() {
-    const chain = await this._resolver.chain(this._rngChainId)
-    const latest: Twine<PulseContent> = await chain.latest()
-    const prev = await chain.pulse(latest.value.content.links[0])
+    const { chain } = await this._resolver.resolve({ chain: this._rngChainId })
+    if (!chain){
+      throw new Error('No chain found')
+    }
+    const res = await ChainResolver.create(this._resolver, chain)
+    const latest = await res.latest()
+    let prev
+    if (latest){
+      prev = await res.pulse(latest.value.content.links[0])
+    }
     return {
       chain,
       latest,
@@ -50,9 +55,13 @@ export class Client {
     const { chain, latest, prev } = await this.fetchPulsePair()
     this._latest = latest
     this._prev = prev
-    const randomness = await getRandomness(latest, chain, prev)
-    const rand = createRandomness(randomness, latest.value.content.payload.timestamp)
-    this._randomness = rand
+    if (latest && prev){
+      const randomness = await getRandomness(latest, chain, prev)
+      const rand = createRandomness(randomness, latest.value.content.payload.timestamp)
+      this._randomness = rand
+    } else {
+      this._randomness = null
+    }
   }
 
   async randomness(){
@@ -60,6 +69,9 @@ export class Client {
       return this._randomness
     }
     await this.refresh()
+    if (!this._randomness){
+      throw new Error('No randomness available')
+    }
     return this._randomness!
   }
 

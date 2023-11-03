@@ -1,2 +1,3 @@
 [install.scopes]
 "@buff-beacon-project" = { token = "$GITHUB_TOKEN", url = "https://npm.pkg.github.com" }
+"@twine-protocol" = { token = "$GITHUB_TOKEN", url = "https://npm.pkg.github.com" }

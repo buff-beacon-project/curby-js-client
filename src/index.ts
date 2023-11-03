@@ -1,4 +1,4 @@
-import CHAINS from './chains.json'
+import CHAINS from './chains'
 export { Client } from './client'
 export { createRandomness } from './randomness'
 export { CHAINS }
