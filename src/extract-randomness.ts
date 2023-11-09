@@ -71,7 +71,7 @@ export const checkValidPrecommitmentValue = async (pulse: Pulse, previous: Pulse
   return true
 }
 
-export const getRandomness = async (pulse: Pulse, chain: Chain, previous: Pulse) => {
+export const extractRandomness = async (pulse: Pulse, chain: Chain, previous: Pulse) => {
   if (!usesDeterministicAlgorithm(pulse.value.signature)) {
     throw new Error('Pulse is signed with a non-deterministic algorithm')
   }

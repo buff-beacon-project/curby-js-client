@@ -5,7 +5,8 @@ const PULSE_INTERVAL = 60000
 /**
  * Time until next rng pulse in milliseconds
  */
-export const timeToNext = (obj: string | number | { timestamp: number } | Pulse) => {
+export const timeToNext = (obj?: string | number | { timestamp: number } | Pulse | null) => {
+  if (!obj) return -1
   let timestamp: number
   if (typeof obj === 'string') {
     timestamp = Date.parse(obj)

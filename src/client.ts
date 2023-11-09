@@ -1,7 +1,7 @@
-import { Pulse, Chain, Resolver, ChainResolver } from '@twine-protocol/twine-core'
+import { Pulse, Chain, Resolver, ChainResolver, PulseIndex, IntoCid } from '@twine-protocol/twine-core'
 import { HttpStore } from '@twine-protocol/twine-http-store'
-import { getRandomness } from './extract-randomness'
-import { Randomness, createRandomness } from './randomness'
+import { extractRandomness } from './extract-randomness'
+import { ByteHelper, byteHelper } from './byte-helper'
 import { timeToNext, wait } from './timing'
 import CHAINS from './chains'
 const CURBY_API_URL = 'https://api.entwine.me'
@@ -21,7 +21,7 @@ export class Client {
   private _rngChainId: string
   private _latest?: Pulse | null
   private _prev?: Pulse | null
-  private _randomness?: Randomness | null
+  private _randomness?: ByteHelper | null
 
   static create(options?: ClientOptions) {
     return new Client(options)
@@ -33,51 +33,70 @@ export class Client {
     this._resolver = new HttpStore(url)
   }
 
-  async fetchPulsePair() {
+  async fetchPulsePair(indexOrCid?: PulseIndex | IntoCid) {
     const { chain } = await this._resolver.resolve({ chain: this._rngChainId })
     if (!chain){
       throw new Error('No chain found')
     }
     const res = await ChainResolver.create(this._resolver, chain)
-    const latest = await res.latest()
+    const pulse = indexOrCid ?
+      await res.pulse(indexOrCid) :
+      await res.latest()
     let prev
-    if (latest){
-      prev = await res.pulse(latest.value.content.links[0])
+    if (pulse){
+      prev = await res.pulse(pulse.value.content.links[0])
     }
     return {
       chain,
-      latest,
+      pulse,
       prev
     }
   }
 
-  async refresh(){
-    const { chain, latest, prev } = await this.fetchPulsePair()
+  async refresh() {
+    if (timeToNext(this._latest) > 0) {
+      return
+    }
+    const { chain, pulse: latest, prev } = await this.fetchPulsePair()
     this._latest = latest
     this._prev = prev
     if (latest && prev){
-      const randomness = await getRandomness(latest, chain, prev)
-      const rand = createRandomness(randomness, latest.value.content.payload.timestamp)
+      const randomness = await extractRandomness(latest, chain, prev)
+      const rand = byteHelper(randomness, latest.value.content.payload.timestamp)
       this._randomness = rand
     } else {
       this._randomness = null
+      throw new Error('Could not fetch latest pulses')
     }
   }
 
   async randomness(){
-    if (this._randomness && timeToNext(this._randomness) > 0){
-      return this._randomness
-    }
     await this.refresh()
-    if (!this._randomness){
-      throw new Error('No randomness available')
-    }
     return this._randomness!
+  }
+
+  async latest(){
+    await this.refresh()
+    return this._latest!
+  }
+
+  async prev(){
+    await this.refresh()
+    return this._prev!
+  }
+
+  async pair(){
+    await this.refresh()
+    return {
+      latest: this._latest!,
+      prev: this._prev!,
+    }
   }
 
   async waitForNext({ signal, timeout }: WaitOptions = {}){
     if (!this._latest){
       await this.refresh()
+      return this._randomness!
     }
     const current = this._latest!
     const nextIndex = current.value.content.index + 1
@@ -104,6 +123,7 @@ export class Client {
     while (!options?.signal?.aborted){
       const res = await this.waitForNext(options)
       if (!res){
+        // aborted
         return
       }
       yield this._randomness!

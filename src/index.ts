@@ -1,5 +1,6 @@
 import CHAINS from './chains'
-export { Client } from './client'
-export { createRandomness } from './randomness'
 export { CHAINS }
+export * from './client'
+export * from './byte-helper'
+export * from './extract-randomness'
 export * from './timing'

@@ -15,9 +15,8 @@
     }
   },
   "scripts": {
-    "build:node": "esbuild ./src/index.ts --sourcemap=external --bundle --platform=node --packages=external --outfile=./dist/index.mjs",
-    "build:browser": "esbuild ./src/index.ts --sourcemap=external --bundle --platform=browser --global-name=Curby --outfile=./dist/index.js",
     "build": "tsup",
+    "dev": "tsup --watch",
     "prepublishOnly": "bun run build",
     "release": "bunx bumpp --no-push"
   },

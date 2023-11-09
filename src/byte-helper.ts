@@ -2,7 +2,7 @@ import type { BitStream } from 'bit-buffer'
 // @ts-ignore
 import { BitReader, iterBitStream } from '@buff-beacon-project/rand-utils'
 
-export type Randomness = {
+export type ByteHelper = {
   timestamp: number,
   bytes(): Uint8Array,
   bits(n: number): Generator<number>,
@@ -14,7 +14,7 @@ export type Randomness = {
   unfold(cb: (reader: BitStream, index: number) => any): Generator<any>,
 }
 
-export function createRandomness(bytes: Uint8Array, isoTimestamp: string): Randomness {
+export function byteHelper(bytes: Uint8Array, isoTimestamp: string): ByteHelper {
   const timestamp = Date.parse(isoTimestamp)
   const br = BitReader.from(bytes)
 
