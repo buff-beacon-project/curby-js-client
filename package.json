@@ -7,11 +7,12 @@
   "exports": {
     ".": {
       "default": "./dist/index.js",
-      "browser": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "node": "./dist/index.mjs",
+      "browser": "./dist/index.browser.js",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "node": "./dist/index.js",
       "bun": "./src/index.ts",
-      "types": "./src/index.ts"
+      "types": "./src/index.d.ts"
     }
   },
   "scripts": {
