@@ -39,7 +39,7 @@ export class Client {
       throw new Error('No chain found')
     }
     const res = await ChainResolver.create(this._resolver, chain)
-    const pulse = indexOrCid ?
+    const pulse = typeof indexOrCid === 'number' ?
       await res.pulse(indexOrCid) :
       await res.latest()
     let prev
