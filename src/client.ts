@@ -1,5 +1,6 @@
 import { Pulse, Chain, Resolver, ChainResolver, PulseIndex, IntoCid } from '@twine-protocol/twine-core'
 import { HttpStore } from '@twine-protocol/twine-http-store'
+import type { FetchOptions } from 'itty-fetcher'
 import { extractRandomness } from './extract-randomness'
 import { ByteHelper, byteHelper } from './byte-helper'
 import { timeToNext, wait } from './timing'
@@ -9,6 +10,7 @@ const CURBY_API_URL = 'https://api.entwine.me'
 export type ClientOptions = {
   url?: string,
   chainId?: string,
+  fetchOptions?: FetchOptions
 }
 
 export type WaitOptions = {
@@ -30,7 +32,7 @@ export class Client {
   constructor(options?: ClientOptions) {
     const url = options?.url ?? CURBY_API_URL
     this._rngChainId = options?.chainId ?? CHAINS.rng
-    this._resolver = new HttpStore(url)
+    this._resolver = new HttpStore(url, options?.fetchOptions)
   }
 
   async fetchPulsePair(indexOrCid?: PulseIndex | IntoCid) {
