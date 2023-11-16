@@ -45,7 +45,7 @@ export class Client {
       await res.pulse(indexOrCid) :
       await res.latest()
     let prev
-    if (pulse){
+    if (pulse && pulse.value.content.links.length > 0){
       prev = await res.pulse(pulse.value.content.links[0])
     }
     return {
