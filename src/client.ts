@@ -14,12 +14,17 @@ export type ClientOptions = {
   fetchOptions?: FetchOptions
 }
 
+export type RandomnessRound = {
+  chain: Chain,
+  pulse: Pulse,
+  prev?: Pulse | null,
+  randomness?: ByteHelper | null
+}
+
 export class Client {
   private _resolver: Resolver
   private _rngChainId: string
-  private _latest?: Pulse | null
-  private _prev?: Pulse | null
-  private _randomness?: ByteHelper | null
+  private _latest?: RandomnessRound
 
   static create(options?: ClientOptions) {
     return new Client(options)
@@ -52,51 +57,53 @@ export class Client {
   }
 
   async refresh() {
-    if (timeToNext(this._latest) > 0) {
+    if (timeToNext(this._latest?.pulse) > 0) {
       return
     }
     const { chain, pulse: latest, prev } = await this.fetchPulsePair()
-    this._latest = latest
-    this._prev = prev
-    if (latest && prev){
-      const randomness = await extractRandomness(latest, chain, prev)
-      const rand = byteHelper(randomness, latest.value.content.payload.timestamp)
-      this._randomness = rand
-    } else {
-      this._randomness = null
-      throw new Error('Could not fetch latest pulses')
+    if (!latest){
+      this._latest = undefined
+      throw new Error('Could not fetch latest pulse')
     }
+    this._latest = { chain, pulse: latest, prev }
+    if (!prev){
+      return this._latest
+    }
+    const randomness = await extractRandomness(latest, chain, prev)
+    const rand = byteHelper(randomness, latest.value.content.payload.timestamp)
+    this._latest = { chain, pulse: latest, prev, randomness: rand }
+    return this._latest
   }
 
   async randomness(){
     await this.refresh()
-    return this._randomness!
+    return this._latest?.randomness
   }
 
   async latest(){
     await this.refresh()
-    return this._latest!
+    return this._latest
   }
 
   async prev(){
     await this.refresh()
-    return this._prev!
+    return this._latest?.prev
   }
 
   async pair(){
     await this.refresh()
     return {
-      latest: this._latest!,
-      prev: this._prev!,
+      latest: this._latest,
+      prev: this._latest?.prev,
     }
   }
 
   async waitForNext({ signal, timeout }: WaitOptions = {}){
     if (!this._latest){
       await this.refresh()
-      return this._randomness!
+      return this._latest!
     }
-    const current = this._latest!
+    const current = this._latest.pulse
     const nextIndex = current.value.content.index + 1
     const delay = timeToNext(current)
     if (delay > 0){
@@ -105,8 +112,8 @@ export class Client {
     let start = Date.now()
     while (!signal?.aborted){
       await this.refresh()
-      if (this._latest!.value.content.index >= nextIndex){
-        return this._randomness!
+      if (this._latest.pulse.value.content.index >= nextIndex){
+        return this._latest!
       }
       const elapsed = Date.now() - start
       if (timeout && elapsed > timeout){
@@ -117,14 +124,14 @@ export class Client {
   }
 
   async *watch(options?: WaitOptions){
-    yield await this.randomness()
+    yield await this.latest()
     while (!options?.signal?.aborted){
       const res = await this.waitForNext(options)
       if (!res){
         // aborted
         return
       }
-      yield this._randomness!
+      yield this._latest!
     }
   }
 }
