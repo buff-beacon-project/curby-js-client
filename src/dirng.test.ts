@@ -9,6 +9,12 @@ test('dirng client get round', async () => {
   expect(round.validations.seedOrdering).toBeDefined()
 })
 
+test('dirng client get pending round', async () => {
+  const client = DIRNGClient.create({ url: 'http://localhost:3000', validateSeed: true })
+  const round = await client.fetchRound('pending')
+  expect(round).toBeDefined()
+})
+
 test('shuffle array', async () => {
   const client = DIRNGClient.create({ url: 'http://localhost:3000', validateSeed: true })
   const randomness = await client.randomness()

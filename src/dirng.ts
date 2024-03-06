@@ -27,6 +27,7 @@ export type RoundValidations = {
 export type RoundData = {
   round: number,
   randomness: ByteHelper | null,
+  chain: Chain,
   pulses: {
     result: Pulse | null,
     request: Pulse,
@@ -183,6 +184,10 @@ export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, par
 
   const isOk = !byStage.error
   const isComplete = Boolean(byStage.request && byStage.precommit && (byStage.randomness || byStage.error))
+  const { chain } = await resolver.resolve({ chain: pulses[0].value.content.chain })
+  if (!chain) {
+    throw new Error('No chain found')
+  }
   const randomness = isComplete ?
     byteHelper(
       byStage.randomness!.value.content.payload.randomness,
@@ -194,6 +199,7 @@ export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, par
   const ret: RoundData = {
     round: pulses[0].value.content.payload.round,
     randomness,
+    chain,
     pulses: {
       result: byStage.randomness || null,
       request: byStage.request,
@@ -297,7 +303,7 @@ export class DIRNGClient {
     const pulses = await Promise.all(json.map(fromJSON)) as Pulse[]
     const roundData = await pulsesToRoundData(pulses, this._resolver)
     let params
-    if (this._validateSeed) {
+    if (this._validateSeed && roundData.isComplete) {
       params = await this.fetchRoundParams(roundData)
     }
     return withValidations(roundData, this._resolver, params)
