@@ -34,6 +34,9 @@
   "dependencies": {
     "@buff-beacon-project/rand-utils": "^0.0.1",
     "@twine-protocol/twine-core": "^0.0.1-alpha.1",
-    "@twine-protocol/twine-http-store": "^0.0.1-alpha.1"
+    "@twine-protocol/twine-http-store": "^0.0.1-alpha.1",
+    "itty-fetcher": "^0.9.4",
+    "jssha": "^3.3.1",
+    "streaming-iterables": "^8.0.1"
   }
 }

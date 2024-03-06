@@ -5,17 +5,13 @@ import { extractRandomness } from './extract-randomness'
 import { ByteHelper, byteHelper } from './byte-helper'
 import { timeToNext, wait } from './timing'
 import CHAINS from './chains'
-const CURBY_API_URL = 'https://api.entwine.me'
+import { CURBY_API_URL } from './common'
+import { WaitOptions } from './common'
 
 export type ClientOptions = {
   url?: string,
   chainId?: string,
   fetchOptions?: FetchOptions
-}
-
-export type WaitOptions = {
-  signal?: AbortSignal,
-  timeout?: number,
 }
 
 export class Client {
