@@ -6,6 +6,8 @@ import { Chain, Pulse } from '@twine-protocol/twine-core'
 
 /**
  * An error for when a precommitment value is invalid
+ *
+ * @group Errors
  */
 export class InvalidPrecom extends Error {
   constructor (msg = 'Invalid Precommitment Value', options: any = {}) {
@@ -26,6 +28,8 @@ export type NumberArray = number[] | Uint8Array | Uint16Array | Uint32Array | Fl
 
 /**
  * zip the provided arrays together
+ *
+ * @group Utilities
  */
 export function zip(...arrays: NumberArray[]): number[][] {
   const minLen = Math.min(...arrays.map(arr => arr.length))
@@ -37,6 +41,8 @@ export function zip(...arrays: NumberArray[]): number[][] {
 
 /**
  * Perform an XOR operation on two arrays
+ *
+ * @group Utilities
  */
 export function xorArrays(a: NumberArray, b: NumberArray) {
   const out = zip(a, b).map(([x, y]) => x ^ y)
@@ -49,6 +55,8 @@ export function xorArrays(a: NumberArray, b: NumberArray) {
 }
 
 /**
+ *
+ * @group Validations
  * @param {string} signature
  * @returns {boolean}
  */
@@ -59,6 +67,8 @@ export const usesDeterministicAlgorithm = (signature: string) => {
 
 /**
  * Get the precommitment value for a pulse
+ *
+ * @group Utilities
  */
 export const getPrecommitmentValue = async (salt: Uint8Array, previous: Pulse, hasher = sha3512) => {
   const x = xorArrays(salt, previous.cid.multihash.digest)
@@ -67,6 +77,8 @@ export const getPrecommitmentValue = async (salt: Uint8Array, previous: Pulse, h
 
 /**
  * Check if a precommitment value is valid
+ *
+ * @group Validations
  */
 export const checkValidPrecommitmentValue = async (pulse: Pulse, previous: Pulse, hasher = sha3512) => {
   try {
@@ -85,6 +97,8 @@ export const checkValidPrecommitmentValue = async (pulse: Pulse, previous: Pulse
 
 /**
  * Extract randomness from a pulse on an RNG chain
+ *
+ * @group Utilities
  */
 export const extractRandomness = async (pulse: Pulse, chain: Chain, previous: Pulse) => {
   if (!usesDeterministicAlgorithm(pulse.value.signature)) {

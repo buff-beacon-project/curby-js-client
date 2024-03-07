@@ -1,5 +1,6 @@
 /**
  * The base URL for the CURBy API
+ * @group Constants
  */
 export const CURBY_API_URL = 'https://api.entwine.me'
 

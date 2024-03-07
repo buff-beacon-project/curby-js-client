@@ -5,6 +5,7 @@ const PULSE_INTERVAL = 60000
 /**
  * Time until next rng pulse in milliseconds
  *
+ * @group Utilities
  * @param obj - A timestamp, pulse, or object with a timestamp property
  * @returns Time until next pulse in milliseconds
  */
@@ -29,6 +30,7 @@ export const timeToNext = (obj?: string | number | { timestamp: number } | Pulse
 /**
  * Wait a specified number of milliseconds
  *
+ * @group Utilities
  * @param dt - The number of milliseconds to wait
  * @param signal - An optional abort signal
  * @returns A promise that resolves after the specified time

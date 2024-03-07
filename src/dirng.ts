@@ -15,6 +15,8 @@ const POLL_DELAY = 60 * 1000
 
 /**
  * A validation result
+ *
+ * @group Validations
  */
 export type Validation = {
   /**
@@ -29,6 +31,8 @@ export type Validation = {
 
 /**
  * A round's validations
+ *
+ * @group DIRNG
  */
 export type RoundValidations = {
   /**
@@ -47,6 +51,8 @@ export type RoundValidations = {
 
 /**
  * A DIRNG round's data
+ *
+ * @group DIRNG
  */
 export type RoundData = {
   /**
@@ -112,6 +118,8 @@ const assert = (condition: boolean, message: string) => {
 
 /**
  * Find the bell response pulse for a round
+ *
+ * @group DIRNG
  */
 async function findBellResponsePulse(round: RoundData, resolver: Resolver, options = { maxDepth: 10 }) {
   const precommit = round.pulses.precommit
@@ -148,6 +156,8 @@ async function findBellResponsePulse(round: RoundData, resolver: Resolver, optio
 
 /**
  * Find the seed pulse for a round
+ *
+ * @group DIRNG
  */
 async function findSeedPulse(round: RoundData, resolver: Resolver, options = { maxDepth: 10 }) {
   const precommit = round.pulses.precommit
@@ -187,6 +197,8 @@ async function findSeedPulse(round: RoundData, resolver: Resolver, options = { m
 
 /**
  * Validate a bell response pulse
+ *
+ * @group Validations
  */
 export async function validateBellResponse(round: RoundData, resolver: Resolver): Promise<Validation> {
   try {
@@ -200,6 +212,8 @@ export async function validateBellResponse(round: RoundData, resolver: Resolver)
 
 /**
  * Validate the ordering of the seed pulse
+ *
+ * @group Validations
  */
 export async function validateSeedOrdering(round: RoundData, resolver: Resolver): Promise<Validation> {
   try {
@@ -213,6 +227,8 @@ export async function validateSeedOrdering(round: RoundData, resolver: Resolver)
 
 /**
  * Validate the seed value
+ *
+ * @group Validations
  */
 export async function validateSeed(round: RoundData, resolver: Resolver, params: any): Promise<Validation> {
   try {
@@ -233,6 +249,8 @@ export async function validateSeed(round: RoundData, resolver: Resolver, params:
 
 /**
  * Add validations to a round
+ *
+ * @group DIRNG
  */
 export async function withValidations(round: RoundData, resolver: Resolver, params?: any): Promise<RoundData> {
   const bellResponse = round.validations.bellResponse ?? await validateBellResponse(round, resolver)
@@ -256,6 +274,8 @@ export async function withValidations(round: RoundData, resolver: Resolver, para
 
 /**
  * Convert pulses to round data
+ *
+ * @group DIRNG
  */
 export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, params?: any): Promise<RoundData> {
   const byStage = pulses.reduce((acc, pulse) => {
@@ -305,6 +325,8 @@ export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, par
 
 /**
  * The options for the DIRNG client
+ *
+ * @group DIRNG
  */
 export type DIRNGClientOptions = {
   /**
@@ -326,6 +348,7 @@ export type DIRNGClientOptions = {
 /**
  * A client for the Device Independent Randomness Generation (DIRNG) chain
  *
+ * @group DIRNG
  * @example
  * ```ts
  * import { DIRNGClient } from '@buff-beacon-project/curby-client'

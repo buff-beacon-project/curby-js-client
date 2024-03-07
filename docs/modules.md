@@ -4,49 +4,363 @@
 
 ## Table of contents
 
-### Classes
-
-- [Client](classes/Client.md)
-- [DIRNGClient](classes/DIRNGClient.md)
-- [InvalidPrecom](classes/InvalidPrecom.md)
-
 ### Type Aliases
 
-- [ByteHelper](modules.md#bytehelper)
-- [ClientOptions](modules.md#clientoptions)
-- [DIRNGClientOptions](modules.md#dirngclientoptions)
-- [LatestPulsePair](modules.md#latestpulsepair)
 - [NumberArray](modules.md#numberarray)
-- [PulsePair](modules.md#pulsepair)
-- [RandomnessRound](modules.md#randomnessround)
-- [RoundData](modules.md#rounddata)
-- [RoundValidations](modules.md#roundvalidations)
-- [Validation](modules.md#validation)
 - [WaitOptions](modules.md#waitoptions)
 
-### Variables
+### Constants
 
 - [CHAINS](modules.md#chains)
 - [CURBY\_API\_URL](modules.md#curby_api_url)
 
-### Functions
+### DIRNG
 
+- [DIRNGClient](classes/DIRNGClient.md)
+- [DIRNGClientOptions](modules.md#dirngclientoptions)
+- [RoundData](modules.md#rounddata)
+- [RoundValidations](modules.md#roundvalidations)
+- [pulsesToRoundData](modules.md#pulsestorounddata)
+- [withValidations](modules.md#withvalidations)
+
+### Errors
+
+- [InvalidPrecom](classes/InvalidPrecom.md)
+
+### PRNG
+
+- [Client](classes/Client.md)
+- [ClientOptions](modules.md#clientoptions)
+- [LatestPulsePair](modules.md#latestpulsepair)
+- [PulsePair](modules.md#pulsepair)
+- [RandomnessRound](modules.md#randomnessround)
+
+### Utilities
+
+- [ByteHelper](modules.md#bytehelper)
 - [byteHelper](modules.md#bytehelper-1)
-- [checkValidPrecommitmentValue](modules.md#checkvalidprecommitmentvalue)
 - [extractRandomness](modules.md#extractrandomness)
 - [getPrecommitmentValue](modules.md#getprecommitmentvalue)
-- [pulsesToRoundData](modules.md#pulsestorounddata)
 - [timeToNext](modules.md#timetonext)
+- [wait](modules.md#wait)
+- [xorArrays](modules.md#xorarrays)
+- [zip](modules.md#zip)
+
+### Validations
+
+- [Validation](modules.md#validation)
+- [checkValidPrecommitmentValue](modules.md#checkvalidprecommitmentvalue)
 - [usesDeterministicAlgorithm](modules.md#usesdeterministicalgorithm)
 - [validateBellResponse](modules.md#validatebellresponse)
 - [validateSeed](modules.md#validateseed)
 - [validateSeedOrdering](modules.md#validateseedordering)
-- [wait](modules.md#wait)
-- [withValidations](modules.md#withvalidations)
-- [xorArrays](modules.md#xorarrays)
-- [zip](modules.md#zip)
 
 ## Type Aliases
+
+### NumberArray
+
+Ƭ **NumberArray**: `number`[] \| `Uint8Array` \| `Uint16Array` \| `Uint32Array` \| `Float32Array`
+
+A type for arrays of numbers
+
+#### Defined in
+
+[src/extract-randomness.ts:27](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L27)
+
+___
+
+### WaitOptions
+
+Ƭ **WaitOptions**: `Object`
+
+The options for waiting
+
+**`See`**
+
+[Client.waitForNext](classes/Client.md#waitfornext)
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `signal?` | `AbortSignal` | An optional abort signal |
+| `timeout?` | `number` | The maximum time to wait |
+
+#### Defined in
+
+[src/common.ts:11](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/common.ts#L11)
+
+## Constants
+
+### CHAINS
+
+• **CHAINS**: `Object`
+
+A constant containing the chain CIDs
+
+**`Constant`**
+
+CHAINS
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `bell` | `string` | CID of the BELL chain |
+| `curbyq` | `string` | CID of the CURBy-Q chain |
+| `rng` | `string` | CID of the RNG chain |
+
+#### Defined in
+
+[src/chains.js:7](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/chains.js#L7)
+
+___
+
+### CURBY\_API\_URL
+
+• `Const` **CURBY\_API\_URL**: ``"https://api.entwine.me"``
+
+The base URL for the CURBy API
+
+#### Defined in
+
+[src/common.ts:5](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/common.ts#L5)
+
+## DIRNG
+
+• **DIRNGClient**: `Object`
+
+A client for the Device Independent Randomness Generation (DIRNG) chain
+
+**`Example`**
+
+```ts
+import { DIRNGClient } from '@buff-beacon-project/curby-client'
+
+const client = DIRNGClient.create()
+const randomness = await client.randomness()
+console.log(randomness)
+```
+
+#### Defined in
+
+[src/dirng.ts:361](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L361)
+
+### DIRNGClientOptions
+
+Ƭ **DIRNGClientOptions**: `Object`
+
+The options for the DIRNG client
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fetchOptions?` | `FetchOptions` | The underlying fetch options **`See`** [https://github.com/kwhitley/itty-fetcher](https://github.com/kwhitley/itty-fetcher) |
+| `url?` | `string` | Alternate URL for the CURBy API |
+| `validateSeed?` | `boolean` | Whether to validate the seed value (default: false). Requires fetching the parameters for each round |
+
+#### Defined in
+
+[src/dirng.ts:331](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L331)
+
+___
+
+### RoundData
+
+Ƭ **RoundData**: `Object`
+
+A DIRNG round's data
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `chain` | `Chain` | The chain |
+| `error` | `Error` \| ``null`` | Error for the round (if present) |
+| `isComplete` | `boolean` | Whether the round is complete |
+| `isOk` | `boolean` | Whether the round succeeded and is valid based on the validations present |
+| `pulses` | \{ `error`: `Pulse` \| ``null`` ; `precommit`: `Pulse` \| ``null`` ; `request`: `Pulse` ; `result`: `Pulse` \| ``null``  } | The pulses for the round |
+| `pulses.error` | `Pulse` \| ``null`` | The error pulse |
+| `pulses.precommit` | `Pulse` \| ``null`` | The precommit pulse |
+| `pulses.request` | `Pulse` | The request pulse |
+| `pulses.result` | `Pulse` \| ``null`` | The result (randomness) pulse |
+| `randomness` | [`ByteHelper`](modules.md#bytehelper) \| ``null`` | The randomness for the round |
+| `round` | `number` | The round number |
+| `stage` | `string` | The stage of the round |
+| `validations` | [`RoundValidations`](modules.md#roundvalidations) | The validations for the round (if present) |
+
+#### Defined in
+
+[src/dirng.ts:57](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L57)
+
+___
+
+### RoundValidations
+
+Ƭ **RoundValidations**: `Object`
+
+A round's validations
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `bellResponse` | [`Validation`](modules.md#validation) \| ``null`` | The validation of the presence of a response pulse on the bell chain |
+| `seed` | [`Validation`](modules.md#validation) \| ``null`` | The validation of the seed value |
+| `seedOrdering` | [`Validation`](modules.md#validation) \| ``null`` | The validation of the ordering of the seed pulse |
+
+#### Defined in
+
+[src/dirng.ts:37](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L37)
+
+___
+
+### pulsesToRoundData
+
+▸ **pulsesToRoundData**(`pulses`, `resolver`, `params?`): `Promise`\<[`RoundData`](modules.md#rounddata)\>
+
+Convert pulses to round data
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `pulses` | `Pulse`[] |
+| `resolver` | `Resolver` |
+| `params?` | `any` |
+
+#### Returns
+
+`Promise`\<[`RoundData`](modules.md#rounddata)\>
+
+#### Defined in
+
+[src/dirng.ts:280](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L280)
+
+___
+
+### withValidations
+
+▸ **withValidations**(`round`, `resolver`, `params?`): `Promise`\<[`RoundData`](modules.md#rounddata)\>
+
+Add validations to a round
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `round` | [`RoundData`](modules.md#rounddata) |
+| `resolver` | `Resolver` |
+| `params?` | `any` |
+
+#### Returns
+
+`Promise`\<[`RoundData`](modules.md#rounddata)\>
+
+#### Defined in
+
+[src/dirng.ts:255](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L255)
+
+## PRNG
+
+• **Client**: `Object`
+
+A client for fetching randomness from the CURBy RNG chain
+
+**`Example`**
+
+```ts
+import { Client } from '@buff-beacon-project/curby-client'
+
+const client = Client.create()
+const randomness = await client.randomness()
+console.log(randomness)
+```
+
+#### Defined in
+
+[src/client.ts:96](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L96)
+
+### ClientOptions
+
+Ƭ **ClientOptions**: `Object`
+
+The options for the Rng Client
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `chainId?` | `string` | Alternate chain cid for the RNG chain |
+| `fetchOptions?` | `FetchOptions` | Underlying fetch options **`See`** [https://github.com/kwhitley/itty-fetcher](https://github.com/kwhitley/itty-fetcher) |
+| `url?` | `string` | Alternate URL for the CURBy API |
+
+#### Defined in
+
+[src/client.ts:16](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L16)
+
+___
+
+### LatestPulsePair
+
+Ƭ **LatestPulsePair**: `Object`
+
+A latest pulse pair
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `latest?` | `Pulse` \| ``null`` | The latest pulse |
+| `prev?` | `Pulse` \| ``null`` | The previous pulse |
+
+#### Defined in
+
+[src/client.ts:76](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L76)
+
+___
+
+### PulsePair
+
+Ƭ **PulsePair**: `Object`
+
+A pair of sequential pulses
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `chain` | `Chain` | The chain |
+| `prev?` | `Pulse` \| ``null`` | The previous pulse |
+| `pulse?` | `Pulse` \| ``null`` | The pulse |
+
+#### Defined in
+
+[src/client.ts:62](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L62)
+
+___
+
+### RandomnessRound
+
+Ƭ **RandomnessRound**: `Object`
+
+A randomness round
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `chain` | `Chain` | The chain |
+| `prev?` | `Pulse` \| ``null`` | The previous pulse |
+| `pulse` | `Pulse` | The pulse |
+| `randomness?` | [`ByteHelper`](modules.md#bytehelper) \| ``null`` | The randomness |
+
+#### Defined in
+
+[src/client.ts:38](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L38)
+
+## Utilities
 
 ### ByteHelper
 
@@ -87,249 +401,9 @@ const shuffled = randomness.shuffled(array)
 
 #### Defined in
 
-[src/byte-helper.ts:24](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/byte-helper.ts#L24)
+[src/byte-helper.ts:25](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/byte-helper.ts#L25)
 
 ___
-
-### ClientOptions
-
-Ƭ **ClientOptions**: `Object`
-
-The options for the Rng Client
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `chainId?` | `string` | Alternate chain cid for the RNG chain |
-| `fetchOptions?` | `FetchOptions` | Underlying fetch options **`See`** [https://github.com/kwhitley/itty-fetcher](https://github.com/kwhitley/itty-fetcher) |
-| `url?` | `string` | Alternate URL for the CURBy API |
-
-#### Defined in
-
-[src/client.ts:14](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L14)
-
-___
-
-### DIRNGClientOptions
-
-Ƭ **DIRNGClientOptions**: `Object`
-
-The options for the DIRNG client
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fetchOptions?` | `FetchOptions` | The underlying fetch options **`See`** [https://github.com/kwhitley/itty-fetcher](https://github.com/kwhitley/itty-fetcher) |
-| `url?` | `string` | Alternate URL for the CURBy API |
-| `validateSeed?` | `boolean` | Whether to validate the seed value (default: false). Requires fetching the parameters for each round |
-
-#### Defined in
-
-[src/dirng.ts:309](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L309)
-
-___
-
-### LatestPulsePair
-
-Ƭ **LatestPulsePair**: `Object`
-
-A latest pulse pair
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `latest?` | `Pulse` \| ``null`` | The latest pulse |
-| `prev?` | `Pulse` \| ``null`` | The previous pulse |
-
-#### Defined in
-
-[src/client.ts:68](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L68)
-
-___
-
-### NumberArray
-
-Ƭ **NumberArray**: `number`[] \| `Uint8Array` \| `Uint16Array` \| `Uint32Array` \| `Float32Array`
-
-A type for arrays of numbers
-
-#### Defined in
-
-[src/extract-randomness.ts:25](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/extract-randomness.ts#L25)
-
-___
-
-### PulsePair
-
-Ƭ **PulsePair**: `Object`
-
-A pair of sequential pulses
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `chain` | `Chain` | The chain |
-| `prev?` | `Pulse` \| ``null`` | The previous pulse |
-| `pulse?` | `Pulse` \| ``null`` | The pulse |
-
-#### Defined in
-
-[src/client.ts:56](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L56)
-
-___
-
-### RandomnessRound
-
-Ƭ **RandomnessRound**: `Object`
-
-A randomness round
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `chain` | `Chain` | The chain |
-| `prev?` | `Pulse` \| ``null`` | The previous pulse |
-| `pulse` | `Pulse` | The pulse |
-| `randomness?` | [`ByteHelper`](modules.md#bytehelper) \| ``null`` | The randomness |
-
-#### Defined in
-
-[src/client.ts:34](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L34)
-
-___
-
-### RoundData
-
-Ƭ **RoundData**: `Object`
-
-A DIRNG round's data
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `chain` | `Chain` | The chain |
-| `error` | `Error` \| ``null`` | Error for the round (if present) |
-| `isComplete` | `boolean` | Whether the round is complete |
-| `isOk` | `boolean` | Whether the round succeeded and is valid based on the validations present |
-| `pulses` | \{ `error`: `Pulse` \| ``null`` ; `precommit`: `Pulse` \| ``null`` ; `request`: `Pulse` ; `result`: `Pulse` \| ``null``  } | The pulses for the round |
-| `pulses.error` | `Pulse` \| ``null`` | The error pulse |
-| `pulses.precommit` | `Pulse` \| ``null`` | The precommit pulse |
-| `pulses.request` | `Pulse` | The request pulse |
-| `pulses.result` | `Pulse` \| ``null`` | The result (randomness) pulse |
-| `randomness` | [`ByteHelper`](modules.md#bytehelper) \| ``null`` | The randomness for the round |
-| `round` | `number` | The round number |
-| `stage` | `string` | The stage of the round |
-| `validations` | [`RoundValidations`](modules.md#roundvalidations) | The validations for the round (if present) |
-
-#### Defined in
-
-[src/dirng.ts:51](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L51)
-
-___
-
-### RoundValidations
-
-Ƭ **RoundValidations**: `Object`
-
-A round's validations
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `bellResponse` | [`Validation`](modules.md#validation) \| ``null`` | The validation of the presence of a response pulse on the bell chain |
-| `seed` | [`Validation`](modules.md#validation) \| ``null`` | The validation of the seed value |
-| `seedOrdering` | [`Validation`](modules.md#validation) \| ``null`` | The validation of the ordering of the seed pulse |
-
-#### Defined in
-
-[src/dirng.ts:33](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L33)
-
-___
-
-### Validation
-
-Ƭ **Validation**: `Object`
-
-A validation result
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ok` | `boolean` | Whether the validation passed |
-| `reason?` | `string` | An optional reason for failure |
-
-#### Defined in
-
-[src/dirng.ts:19](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L19)
-
-___
-
-### WaitOptions
-
-Ƭ **WaitOptions**: `Object`
-
-The options for waiting
-
-**`See`**
-
-[Client.waitForNext](classes/Client.md#waitfornext)
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `signal?` | `AbortSignal` | An optional abort signal |
-| `timeout?` | `number` | The maximum time to wait |
-
-#### Defined in
-
-[src/common.ts:10](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/common.ts#L10)
-
-## Variables
-
-### CHAINS
-
-• **CHAINS**: `Object`
-
-A constant containing the chain CIDs
-
-**`Constant`**
-
-CHAINS
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `bell` | `string` | CID of the BELL chain |
-| `curbyq` | `string` | CID of the CURBy-Q chain |
-| `rng` | `string` | CID of the RNG chain |
-
-#### Defined in
-
-[src/chains.js:5](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/chains.js#L5)
-
-___
-
-### CURBY\_API\_URL
-
-• `Const` **CURBY\_API\_URL**: ``"https://api.entwine.me"``
-
-The base URL for the CURBy API
-
-#### Defined in
-
-[src/common.ts:4](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/common.ts#L4)
-
-## Functions
 
 ### byteHelper
 
@@ -350,31 +424,7 @@ Create a [ByteHelper](modules.md#bytehelper) from a set of bytes and a timestamp
 
 #### Defined in
 
-[src/byte-helper.ts:115](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/byte-helper.ts#L115)
-
-___
-
-### checkValidPrecommitmentValue
-
-▸ **checkValidPrecommitmentValue**(`pulse`, `previous`, `hasher?`): `Promise`\<`boolean`\>
-
-Check if a precommitment value is valid
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `pulse` | `Pulse` | `undefined` |
-| `previous` | `Pulse` | `undefined` |
-| `hasher` | `Hasher`\<``"sha3-512"``, ``20``\> | `sha3512` |
-
-#### Returns
-
-`Promise`\<`boolean`\>
-
-#### Defined in
-
-[src/extract-randomness.ts:71](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/extract-randomness.ts#L71)
+[src/byte-helper.ts:118](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/byte-helper.ts#L118)
 
 ___
 
@@ -398,7 +448,7 @@ Extract randomness from a pulse on an RNG chain
 
 #### Defined in
 
-[src/extract-randomness.ts:89](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/extract-randomness.ts#L89)
+[src/extract-randomness.ts:103](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L103)
 
 ___
 
@@ -422,31 +472,7 @@ Get the precommitment value for a pulse
 
 #### Defined in
 
-[src/extract-randomness.ts:63](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/extract-randomness.ts#L63)
-
-___
-
-### pulsesToRoundData
-
-▸ **pulsesToRoundData**(`pulses`, `resolver`, `params?`): `Promise`\<[`RoundData`](modules.md#rounddata)\>
-
-Convert pulses to round data
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `pulses` | `Pulse`[] |
-| `resolver` | `Resolver` |
-| `params?` | `any` |
-
-#### Returns
-
-`Promise`\<[`RoundData`](modules.md#rounddata)\>
-
-#### Defined in
-
-[src/dirng.ts:260](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L260)
+[src/extract-randomness.ts:73](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L73)
 
 ___
 
@@ -470,97 +496,7 @@ Time until next pulse in milliseconds
 
 #### Defined in
 
-[src/timing.ts:11](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/timing.ts#L11)
-
-___
-
-### usesDeterministicAlgorithm
-
-▸ **usesDeterministicAlgorithm**(`signature`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `signature` | `string` |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/extract-randomness.ts:55](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/extract-randomness.ts#L55)
-
-___
-
-### validateBellResponse
-
-▸ **validateBellResponse**(`round`, `resolver`): `Promise`\<[`Validation`](modules.md#validation)\>
-
-Validate a bell response pulse
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `round` | [`RoundData`](modules.md#rounddata) |
-| `resolver` | `Resolver` |
-
-#### Returns
-
-`Promise`\<[`Validation`](modules.md#validation)\>
-
-#### Defined in
-
-[src/dirng.ts:191](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L191)
-
-___
-
-### validateSeed
-
-▸ **validateSeed**(`round`, `resolver`, `params`): `Promise`\<[`Validation`](modules.md#validation)\>
-
-Validate the seed value
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `round` | [`RoundData`](modules.md#rounddata) |
-| `resolver` | `Resolver` |
-| `params` | `any` |
-
-#### Returns
-
-`Promise`\<[`Validation`](modules.md#validation)\>
-
-#### Defined in
-
-[src/dirng.ts:217](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L217)
-
-___
-
-### validateSeedOrdering
-
-▸ **validateSeedOrdering**(`round`, `resolver`): `Promise`\<[`Validation`](modules.md#validation)\>
-
-Validate the ordering of the seed pulse
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `round` | [`RoundData`](modules.md#rounddata) |
-| `resolver` | `Resolver` |
-
-#### Returns
-
-`Promise`\<[`Validation`](modules.md#validation)\>
-
-#### Defined in
-
-[src/dirng.ts:204](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L204)
+[src/timing.ts:12](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/timing.ts#L12)
 
 ___
 
@@ -596,31 +532,7 @@ console.log('One second has passed')
 
 #### Defined in
 
-[src/timing.ts:42](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/timing.ts#L42)
-
-___
-
-### withValidations
-
-▸ **withValidations**(`round`, `resolver`, `params?`): `Promise`\<[`RoundData`](modules.md#rounddata)\>
-
-Add validations to a round
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `round` | [`RoundData`](modules.md#rounddata) |
-| `resolver` | `Resolver` |
-| `params?` | `any` |
-
-#### Returns
-
-`Promise`\<[`RoundData`](modules.md#rounddata)\>
-
-#### Defined in
-
-[src/dirng.ts:237](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/dirng.ts#L237)
+[src/timing.ts:44](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/timing.ts#L44)
 
 ___
 
@@ -643,7 +555,7 @@ Perform an XOR operation on two arrays
 
 #### Defined in
 
-[src/extract-randomness.ts:41](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/extract-randomness.ts#L41)
+[src/extract-randomness.ts:47](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L47)
 
 ___
 
@@ -665,4 +577,137 @@ zip the provided arrays together
 
 #### Defined in
 
-[src/extract-randomness.ts:30](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/extract-randomness.ts#L30)
+[src/extract-randomness.ts:34](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L34)
+
+## Validations
+
+### Validation
+
+Ƭ **Validation**: `Object`
+
+A validation result
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `ok` | `boolean` | Whether the validation passed |
+| `reason?` | `string` | An optional reason for failure |
+
+#### Defined in
+
+[src/dirng.ts:21](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L21)
+
+___
+
+### checkValidPrecommitmentValue
+
+▸ **checkValidPrecommitmentValue**(`pulse`, `previous`, `hasher?`): `Promise`\<`boolean`\>
+
+Check if a precommitment value is valid
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `pulse` | `Pulse` | `undefined` |
+| `previous` | `Pulse` | `undefined` |
+| `hasher` | `Hasher`\<``"sha3-512"``, ``20``\> | `sha3512` |
+
+#### Returns
+
+`Promise`\<`boolean`\>
+
+#### Defined in
+
+[src/extract-randomness.ts:83](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L83)
+
+___
+
+### usesDeterministicAlgorithm
+
+▸ **usesDeterministicAlgorithm**(`signature`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `signature` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/extract-randomness.ts:63](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L63)
+
+___
+
+### validateBellResponse
+
+▸ **validateBellResponse**(`round`, `resolver`): `Promise`\<[`Validation`](modules.md#validation)\>
+
+Validate a bell response pulse
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `round` | [`RoundData`](modules.md#rounddata) |
+| `resolver` | `Resolver` |
+
+#### Returns
+
+`Promise`\<[`Validation`](modules.md#validation)\>
+
+#### Defined in
+
+[src/dirng.ts:203](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L203)
+
+___
+
+### validateSeed
+
+▸ **validateSeed**(`round`, `resolver`, `params`): `Promise`\<[`Validation`](modules.md#validation)\>
+
+Validate the seed value
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `round` | [`RoundData`](modules.md#rounddata) |
+| `resolver` | `Resolver` |
+| `params` | `any` |
+
+#### Returns
+
+`Promise`\<[`Validation`](modules.md#validation)\>
+
+#### Defined in
+
+[src/dirng.ts:233](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L233)
+
+___
+
+### validateSeedOrdering
+
+▸ **validateSeedOrdering**(`round`, `resolver`): `Promise`\<[`Validation`](modules.md#validation)\>
+
+Validate the ordering of the seed pulse
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `round` | [`RoundData`](modules.md#rounddata) |
+| `resolver` | `Resolver` |
+
+#### Returns
+
+`Promise`\<[`Validation`](modules.md#validation)\>
+
+#### Defined in
+
+[src/dirng.ts:218](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L218)

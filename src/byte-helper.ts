@@ -7,6 +7,7 @@ import { BitReader, iterBitStream } from '@buff-beacon-project/rand-utils'
  *
  * Contains methods for reading bits, shuffling arrays, and more.
  *
+ * @group Utilities
  * @example
  * ```ts
  * // BytesHelper from a randomness call
@@ -111,6 +112,8 @@ export type ByteHelper = {
 
 /**
  * Create a {@link ByteHelper} from a set of bytes and a timestamp
+ *
+ * @group Utilities
  */
 export function byteHelper(bytes: Uint8Array, isoTimestamp: string): ByteHelper {
   const timestamp = Date.parse(isoTimestamp)

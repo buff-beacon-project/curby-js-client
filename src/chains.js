@@ -1,5 +1,7 @@
 /**
  * A constant containing the chain CIDs
+ *
+ * @group Constants
  * @constant {Object} CHAINS
  */
 export default {

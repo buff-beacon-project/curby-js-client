@@ -50,7 +50,7 @@ console.log(randomness)
 
 #### Defined in
 
-[src/client.ts:103](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L103)
+[src/client.ts:112](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L112)
 
 ## Methods
 
@@ -72,7 +72,7 @@ Fetch the a pulse and its predecessor by index or CID
 
 #### Defined in
 
-[src/client.ts:112](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L112)
+[src/client.ts:121](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L121)
 
 ___
 
@@ -88,7 +88,7 @@ Get the latest round data
 
 #### Defined in
 
-[src/client.ts:165](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L165)
+[src/client.ts:174](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L174)
 
 ___
 
@@ -104,7 +104,7 @@ Get the latest and previous pulse
 
 #### Defined in
 
-[src/client.ts:181](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L181)
+[src/client.ts:190](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L190)
 
 ___
 
@@ -120,7 +120,7 @@ Get the previous pulse
 
 #### Defined in
 
-[src/client.ts:173](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L173)
+[src/client.ts:182](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L182)
 
 ___
 
@@ -136,7 +136,7 @@ Get the latest randomness
 
 #### Defined in
 
-[src/client.ts:157](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L157)
+[src/client.ts:166](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L166)
 
 ___
 
@@ -152,7 +152,7 @@ Refresh the internal state of the client
 
 #### Defined in
 
-[src/client.ts:135](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L135)
+[src/client.ts:144](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L144)
 
 ___
 
@@ -174,7 +174,7 @@ Wait for the next pulse
 
 #### Defined in
 
-[src/client.ts:192](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L192)
+[src/client.ts:201](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L201)
 
 ___
 
@@ -205,7 +205,7 @@ for await (const round of client.watch()){
 
 #### Defined in
 
-[src/client.ts:229](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L229)
+[src/client.ts:238](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L238)
 
 ___
 
@@ -227,4 +227,4 @@ Create a new client
 
 #### Defined in
 
-[src/client.ts:96](https://github.com/buff-beacon-project/curby-js-client/blob/b8d739f/src/client.ts#L96)
+[src/client.ts:105](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L105)
