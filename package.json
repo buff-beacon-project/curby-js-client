@@ -2,7 +2,7 @@
   "name": "@buff-beacon-project/curby-client",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "exports": {
     ".": {
