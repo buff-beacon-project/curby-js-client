@@ -14,3 +14,12 @@ test('shuffle array', async () => {
   const shuffled = randomness?.shuffled(array)
   expect(shuffled).not.toEqual(array)
 })
+
+test('list of 8 bit numbers', async () => {
+  const client = Client.create({ url: 'http://localhost:3000' })
+  const randomness = await client.randomness()
+  const numbers = randomness?.bits(8)
+  expect(numbers).toBeDefined()
+  expect(Array.from(numbers!)).toHaveLength(512 / 8)
+  expect(Array.from(numbers!).every((n) => n >= 0 && n < 256)).toBe(true)
+})

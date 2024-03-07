@@ -7,7 +7,7 @@
   "exports": {
     ".": {
       "default": "./dist/index.js",
-      "browser": "./dist/index.browser.js",
+      "browser": "./dist/index.js",
       "require": "./dist/index.cjs",
       "import": "./dist/index.js",
       "node": "./dist/index.js",
@@ -27,6 +27,10 @@
     "beacon",
     "randomness"
   ],
+  "homepage": "https://random.colorado.edu",
+  "bugs": {
+    "url": "https://github.com/buff-beacon-project/curby-js-client/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/buff-beacon-project/curby-js-client.git"
@@ -35,23 +39,23 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "docs": "typedoc --out docs --exclude *.test.ts --plugin typedoc-plugin-markdown src",
-    "prepublishOnly": "bun run build",
+    "prepublishOnly": "bun run build && bun run docs",
     "release": "bunx bumpp --no-push"
   },
   "devDependencies": {
     "bun-types": "latest",
     "tsup": "^7.2.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "typedoc": "^0.25.11",
+    "typedoc-plugin-markdown": "^3.17.1"
   },
   "peerDependencies": {},
   "dependencies": {
-    "@buff-beacon-project/rand-utils": "^0.0.1",
+    "@buff-beacon-project/rand-utils": "0.1.1",
     "@twine-protocol/twine-core": "^0.0.1-alpha.1",
     "@twine-protocol/twine-http-store": "^0.0.1-alpha.1",
     "itty-fetcher": "^0.9.4",
     "jssha": "^3.3.1",
-    "streaming-iterables": "^8.0.1",
-    "typedoc": "^0.25.11",
-    "typedoc-plugin-markdown": "^3.17.1"
+    "streaming-iterables": "^8.0.1"
   }
 }

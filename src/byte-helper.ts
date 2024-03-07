@@ -1,6 +1,6 @@
-import type { BitStream } from 'bit-buffer'
+import { BitStream } from 'bit-buffer'
 // @ts-ignore
-import { BitReader, iterBitStream } from '@buff-beacon-project/rand-utils'
+import { BitReader, unfoldBitstream } from '@buff-beacon-project/rand-utils'
 
 /**
  * A helper for working with randomness.
@@ -58,7 +58,7 @@ export type ByteHelper = {
    *
    * @see {@link https://github.com/buff-beacon-project/rand-utils}
    */
-  reader(): BitStream,
+  reader(): BitReader,
   /**
    * The maximum length an array can be for shuffling
    */
@@ -121,7 +121,7 @@ export function byteHelper(bytes: Uint8Array, isoTimestamp: string): ByteHelper 
 
   const unfold = (cb: (reader: BitStream, index: number) => any) => {
     const stream = br.stream()
-    return iterBitStream((i: number) => cb(stream, i))
+    return unfoldBitstream(stream, cb)
   }
 
   return {
@@ -133,7 +133,7 @@ export function byteHelper(bytes: Uint8Array, isoTimestamp: string): ByteHelper 
     signedBits(n: number) {
       return unfold((reader) => reader.readBits(n, true))
     },
-    reader: () => br.clone(),
+    reader: () => BitReader.from(bytes),
     maxShuffleLength: br.maxShuffleLength,
     shuffled(arr: any[]) {
       return br.shuffled(arr)
