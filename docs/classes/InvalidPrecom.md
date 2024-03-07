@@ -52,7 +52,7 @@ Error.constructor
 
 #### Defined in
 
-[src/extract-randomness.ts:13](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L13)
+[src/extract-randomness.ts:13](https://github.com/buff-beacon-project/curby-js-client/blob/fd01cad/src/extract-randomness.ts#L13)
 
 ## Properties
 
