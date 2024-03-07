@@ -440,7 +440,13 @@ export class DIRNGClient {
     const which = round ?? 'latest'
     const path = `/round/${which}`
     const json = await this._fetcher.get(path)
-    if (!Array.isArray(json) || json.length === 0) {
+    if (!Array.isArray(json)) {
+      throw new Error('Invalid response from API')
+    }
+    if (which === 'pending' && json.length === 0) {
+      await wait(10000)
+      return this.fetchRound('pending')
+    } else if (json.length === 0) {
       throw new Error('Invalid response from API')
     }
     if (which === 'latest' && this._latest) {
