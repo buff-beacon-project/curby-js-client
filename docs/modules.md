@@ -65,7 +65,7 @@ A type for arrays of numbers
 
 #### Defined in
 
-[src/extract-randomness.ts:27](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L27)
+[src/extract-randomness.ts:27](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L27)
 
 ___
 
@@ -88,7 +88,7 @@ The options for waiting
 
 #### Defined in
 
-[src/common.ts:11](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/common.ts#L11)
+[src/common.ts:11](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/common.ts#L11)
 
 ## Constants
 
@@ -112,7 +112,7 @@ CHAINS
 
 #### Defined in
 
-[src/chains.js:7](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/chains.js#L7)
+[src/chains.js:7](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/chains.js#L7)
 
 ___
 
@@ -124,7 +124,7 @@ The base URL for the CURBy API
 
 #### Defined in
 
-[src/common.ts:5](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/common.ts#L5)
+[src/common.ts:5](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/common.ts#L5)
 
 ## DIRNG
 
@@ -144,7 +144,7 @@ console.log(randomness)
 
 #### Defined in
 
-[src/dirng.ts:361](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L361)
+[src/dirng.ts:361](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L361)
 
 ### DIRNGClientOptions
 
@@ -162,7 +162,7 @@ The options for the DIRNG client
 
 #### Defined in
 
-[src/dirng.ts:331](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L331)
+[src/dirng.ts:331](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L331)
 
 ___
 
@@ -192,7 +192,7 @@ A DIRNG round's data
 
 #### Defined in
 
-[src/dirng.ts:57](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L57)
+[src/dirng.ts:57](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L57)
 
 ___
 
@@ -212,7 +212,7 @@ A round's validations
 
 #### Defined in
 
-[src/dirng.ts:37](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L37)
+[src/dirng.ts:37](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L37)
 
 ___
 
@@ -236,7 +236,7 @@ Convert pulses to round data
 
 #### Defined in
 
-[src/dirng.ts:280](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L280)
+[src/dirng.ts:280](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L280)
 
 ___
 
@@ -260,7 +260,7 @@ Add validations to a round
 
 #### Defined in
 
-[src/dirng.ts:255](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L255)
+[src/dirng.ts:255](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L255)
 
 ## PRNG
 
@@ -280,7 +280,7 @@ console.log(randomness)
 
 #### Defined in
 
-[src/client.ts:96](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L96)
+[src/client.ts:96](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/client.ts#L96)
 
 ### ClientOptions
 
@@ -298,7 +298,7 @@ The options for the Rng Client
 
 #### Defined in
 
-[src/client.ts:16](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L16)
+[src/client.ts:16](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/client.ts#L16)
 
 ___
 
@@ -317,7 +317,7 @@ A latest pulse pair
 
 #### Defined in
 
-[src/client.ts:76](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L76)
+[src/client.ts:76](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/client.ts#L76)
 
 ___
 
@@ -337,7 +337,7 @@ A pair of sequential pulses
 
 #### Defined in
 
-[src/client.ts:62](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L62)
+[src/client.ts:62](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/client.ts#L62)
 
 ___
 
@@ -358,7 +358,7 @@ A randomness round
 
 #### Defined in
 
-[src/client.ts:38](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/client.ts#L38)
+[src/client.ts:38](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/client.ts#L38)
 
 ## Utilities
 
@@ -394,14 +394,14 @@ const shuffled = randomness.shuffled(array)
 | `applyShuffle` | (`arr`: `any`[]) => `void` | Applies a shuffle to an array **`Example`** ```ts const array = [1, 2, 3, 4, 5] randomness.applyShuffle(array) // array = [3, 1, 5, 2, 4] ``` |
 | `bits` | (`n`: `number`) => `Generator`\<`number`, `any`, `unknown`\> | A generator for reading unsigned numbers **`Example`** ```ts for (const n of randomness.bits(10)){ console.log(n) } // or create an array const numbers = Array.from(randomness.bits(10)) ``` |
 | `bytes` | () => `Uint8Array` | The bytes of the randomness |
-| `reader` | () => `BitStream` | The a BitReader for the randomness **`See`** [https://github.com/buff-beacon-project/rand-utils](https://github.com/buff-beacon-project/rand-utils) |
+| `reader` | () => `BitReader` | The a BitReader for the randomness **`See`** [https://github.com/buff-beacon-project/rand-utils](https://github.com/buff-beacon-project/rand-utils) |
 | `shuffled` | (`arr`: `any`[]) => `any`[] | Shuffles an array using the randomness **`Example`** ```ts const array = [1, 2, 3, 4, 5] const shuffled = randomness.shuffled(array) // shuffled = [3, 1, 5, 2, 4] ``` |
 | `signedBits` | (`n`: `number`) => `Generator`\<`number`, `any`, `unknown`\> | A generator for reading signed numbers |
 | `unfold` | (`cb`: (`reader`: `BitStream`, `index`: `number`) => `any`) => `Generator`\<`any`, `any`, `unknown`\> | Unfolds the randomness **`Example`** ```ts // A random walk const cardinal = ['north', 'east', 'south', 'west'] const path = randomness.unfold((reader) => { const n = reader.readBits(2, false) return cardinal[n] }) for (const step of path){ console.log(step) } ``` |
 
 #### Defined in
 
-[src/byte-helper.ts:25](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/byte-helper.ts#L25)
+[src/byte-helper.ts:25](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/byte-helper.ts#L25)
 
 ___
 
@@ -424,7 +424,7 @@ Create a [ByteHelper](modules.md#bytehelper) from a set of bytes and a timestamp
 
 #### Defined in
 
-[src/byte-helper.ts:118](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/byte-helper.ts#L118)
+[src/byte-helper.ts:118](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/byte-helper.ts#L118)
 
 ___
 
@@ -448,7 +448,7 @@ Extract randomness from a pulse on an RNG chain
 
 #### Defined in
 
-[src/extract-randomness.ts:103](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L103)
+[src/extract-randomness.ts:103](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L103)
 
 ___
 
@@ -472,7 +472,7 @@ Get the precommitment value for a pulse
 
 #### Defined in
 
-[src/extract-randomness.ts:73](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L73)
+[src/extract-randomness.ts:73](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L73)
 
 ___
 
@@ -496,7 +496,7 @@ Time until next pulse in milliseconds
 
 #### Defined in
 
-[src/timing.ts:12](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/timing.ts#L12)
+[src/timing.ts:12](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/timing.ts#L12)
 
 ___
 
@@ -532,7 +532,7 @@ console.log('One second has passed')
 
 #### Defined in
 
-[src/timing.ts:44](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/timing.ts#L44)
+[src/timing.ts:44](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/timing.ts#L44)
 
 ___
 
@@ -555,7 +555,7 @@ Perform an XOR operation on two arrays
 
 #### Defined in
 
-[src/extract-randomness.ts:47](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L47)
+[src/extract-randomness.ts:47](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L47)
 
 ___
 
@@ -577,7 +577,7 @@ zip the provided arrays together
 
 #### Defined in
 
-[src/extract-randomness.ts:34](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L34)
+[src/extract-randomness.ts:34](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L34)
 
 ## Validations
 
@@ -596,7 +596,7 @@ A validation result
 
 #### Defined in
 
-[src/dirng.ts:21](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L21)
+[src/dirng.ts:21](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L21)
 
 ___
 
@@ -620,7 +620,7 @@ Check if a precommitment value is valid
 
 #### Defined in
 
-[src/extract-randomness.ts:83](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L83)
+[src/extract-randomness.ts:83](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L83)
 
 ___
 
@@ -640,7 +640,7 @@ ___
 
 #### Defined in
 
-[src/extract-randomness.ts:63](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/extract-randomness.ts#L63)
+[src/extract-randomness.ts:63](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/extract-randomness.ts#L63)
 
 ___
 
@@ -663,7 +663,7 @@ Validate a bell response pulse
 
 #### Defined in
 
-[src/dirng.ts:203](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L203)
+[src/dirng.ts:203](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L203)
 
 ___
 
@@ -687,7 +687,7 @@ Validate the seed value
 
 #### Defined in
 
-[src/dirng.ts:233](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L233)
+[src/dirng.ts:233](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L233)
 
 ___
 
@@ -710,4 +710,4 @@ Validate the ordering of the seed pulse
 
 #### Defined in
 
-[src/dirng.ts:218](https://github.com/buff-beacon-project/curby-js-client/blob/0348368/src/dirng.ts#L218)
+[src/dirng.ts:218](https://github.com/buff-beacon-project/curby-js-client/blob/6a4bdf0/src/dirng.ts#L218)
