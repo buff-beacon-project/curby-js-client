@@ -4,6 +4,9 @@ import * as digest from 'multiformats/hashes/digest'
 import { decodeProtectedHeader } from 'jose'
 import { Chain, Pulse } from '@twine-protocol/twine-core'
 
+/**
+ * An error for when a precommitment value is invalid
+ */
 export class InvalidPrecom extends Error {
   constructor (msg = 'Invalid Precommitment Value', options: any = {}) {
     super(msg)
@@ -16,6 +19,9 @@ const DETERMINISTIC_ALGORITHMS = [
   'RS256', 'RS384', 'RS512'
 ]
 
+/**
+ * A type for arrays of numbers
+ */
 export type NumberArray = number[] | Uint8Array | Uint16Array | Uint32Array | Float32Array
 
 /**
@@ -51,11 +57,17 @@ export const usesDeterministicAlgorithm = (signature: string) => {
   return !!header.alg && DETERMINISTIC_ALGORITHMS.indexOf(header.alg) > -1
 }
 
+/**
+ * Get the precommitment value for a pulse
+ */
 export const getPrecommitmentValue = async (salt: Uint8Array, previous: Pulse, hasher = sha3512) => {
   const x = xorArrays(salt, previous.cid.multihash.digest)
   return hasher.digest(x)
 }
 
+/**
+ * Check if a precommitment value is valid
+ */
 export const checkValidPrecommitmentValue = async (pulse: Pulse, previous: Pulse, hasher = sha3512) => {
   try {
     const salt = pulse.value.content.payload.salt
@@ -71,6 +83,9 @@ export const checkValidPrecommitmentValue = async (pulse: Pulse, previous: Pulse
   return true
 }
 
+/**
+ * Extract randomness from a pulse on an RNG chain
+ */
 export const extractRandomness = async (pulse: Pulse, chain: Chain, previous: Pulse) => {
   if (!usesDeterministicAlgorithm(pulse.value.signature)) {
     throw new Error('Pulse is signed with a non-deterministic algorithm')

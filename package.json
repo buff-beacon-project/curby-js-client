@@ -19,9 +19,22 @@
     "dist/**/*",
     "src/**/*"
   ],
+  "author": "Jasper Palfree <jasper.palfree@colorado.edu>",
+  "license": "MIT",
+  "keywords": [
+    "curby",
+    "twine",
+    "beacon",
+    "randomness"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buff-beacon-project/curby-js-client.git"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
+    "docs": "typedoc --out docs --exclude *.test.ts --plugin typedoc-plugin-markdown src",
     "prepublishOnly": "bun run build",
     "release": "bunx bumpp --no-push"
   },
@@ -37,6 +50,8 @@
     "@twine-protocol/twine-http-store": "^0.0.1-alpha.1",
     "itty-fetcher": "^0.9.4",
     "jssha": "^3.3.1",
-    "streaming-iterables": "^8.0.1"
+    "streaming-iterables": "^8.0.1",
+    "typedoc": "^0.25.11",
+    "typedoc-plugin-markdown": "^3.17.1"
   }
 }

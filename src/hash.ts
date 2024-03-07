@@ -13,5 +13,11 @@ const hasher = (algorithm: any) => async (
   return sha.getHash(outputFormat, options)
 }
 
+/**
+ * @ignore
+ */
 export const shake256 = hasher('SHAKE256')
+/**
+ * @ignore
+ */
 export const sha3512 = hasher('SHA3-512')

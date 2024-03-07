@@ -8,35 +8,108 @@ import CHAINS from './chains'
 import { CURBY_API_URL } from './common'
 import { WaitOptions } from './common'
 
+/**
+ * The options for the Rng Client
+ */
 export type ClientOptions = {
+  /**
+   * Alternate URL for the CURBy API
+   */
   url?: string,
+  /**
+   * Alternate chain cid for the RNG chain
+   */
   chainId?: string,
+  /**
+   * Underlying fetch options
+   *
+   * @see {@link https://github.com/kwhitley/itty-fetcher}
+   */
   fetchOptions?: FetchOptions
 }
 
+/**
+ * A randomness round
+ */
 export type RandomnessRound = {
+  /**
+   * The chain
+   */
   chain: Chain,
+  /**
+   * The pulse
+   */
   pulse: Pulse,
+  /**
+   * The previous pulse
+   */
   prev?: Pulse | null,
+  /**
+   * The randomness
+   */
   randomness?: ByteHelper | null
 }
 
+/**
+ * A pair of sequential pulses
+ */
+export type PulsePair = {
+  /** The chain */
+  chain: Chain,
+  /** The pulse */
+  pulse?: Pulse | null,
+  /** The previous pulse */
+  prev?: Pulse | null
+}
+
+/**
+ * A latest pulse pair
+ */
+export type LatestPulsePair = {
+  /** The latest pulse */
+  latest?: Pulse | null,
+  /** The previous pulse */
+  prev?: Pulse | null
+}
+
+/**
+ * A client for fetching randomness from the CURBy RNG chain
+ *
+ * @example
+ * ```ts
+ * import { Client } from '@buff-beacon-project/curby-client'
+ *
+ * const client = Client.create()
+ * const randomness = await client.randomness()
+ * console.log(randomness)
+ * ```
+ */
 export class Client {
   private _resolver: Resolver
   private _rngChainId: string
   private _latest?: RandomnessRound
 
+  /**
+   * Create a new client
+   * @param options - The options for the client
+   */
   static create(options?: ClientOptions) {
     return new Client(options)
   }
 
+  /**
+   * @param options - The options for the client
+   */
   constructor(options?: ClientOptions) {
     const url = options?.url ?? CURBY_API_URL
     this._rngChainId = options?.chainId ?? CHAINS.rng
     this._resolver = new HttpStore(url, options?.fetchOptions)
   }
 
-  async fetchPulsePair(indexOrCid?: PulseIndex | IntoCid) {
+  /**
+   * Fetch the a pulse and its predecessor by index or CID
+   */
+  async fetchPulsePair(indexOrCid?: PulseIndex | IntoCid): Promise<PulsePair> {
     const { chain } = await this._resolver.resolve({ chain: this._rngChainId })
     if (!chain){
       throw new Error('No chain found')
@@ -56,6 +129,9 @@ export class Client {
     }
   }
 
+  /**
+   * Refresh the internal state of the client
+   */
   async refresh() {
     if (timeToNext(this._latest?.pulse) > 0) {
       return
@@ -75,29 +151,44 @@ export class Client {
     return this._latest
   }
 
+  /**
+   * Get the latest randomness
+   */
   async randomness(){
     await this.refresh()
     return this._latest?.randomness
   }
 
+  /**
+   * Get the latest round data
+   */
   async latest(){
     await this.refresh()
     return this._latest
   }
 
+  /**
+   * Get the previous pulse
+   */
   async prev(){
     await this.refresh()
     return this._latest?.prev
   }
 
-  async pair(){
+  /**
+   * Get the latest and previous pulse
+   */
+  async pair(): Promise<LatestPulsePair> {
     await this.refresh()
     return {
-      latest: this._latest,
+      latest: this._latest?.pulse,
       prev: this._latest?.prev,
     }
   }
 
+  /**
+   * Wait for the next pulse
+   */
   async waitForNext({ signal, timeout }: WaitOptions = {}){
     if (!this._latest){
       await this.refresh()
@@ -123,6 +214,18 @@ export class Client {
     }
   }
 
+  /**
+   * Poll for the latest randomness
+   * @param options - The options for waiting
+   *
+   * @example
+   * ```ts
+   * const client = Client.create()
+   * for await (const round of client.watch()){
+   *   console.log(round.randomness)
+   * }
+   * ```
+   */
   async *watch(options?: WaitOptions){
     yield await this.latest()
     while (!options?.signal?.aborted){

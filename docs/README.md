@@ -1,3 +1,5 @@
+@buff-beacon-project/curby-client / [Exports](modules.md)
+
 # CURBy JavaScript Client
 
 This is the official client library for the [CURBy Project](https://random.colorado.edu). It fetches and validates both the regular randomness chain and the DIRNG chain.

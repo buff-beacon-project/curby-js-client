@@ -13,31 +13,94 @@ import { WaitOptions } from './common'
 
 const POLL_DELAY = 60 * 1000
 
+/**
+ * A validation result
+ */
 export type Validation = {
+  /**
+   * Whether the validation passed
+   */
   ok: boolean,
+  /**
+   * An optional reason for failure
+   */
   reason?: string,
 }
 
+/**
+ * A round's validations
+ */
 export type RoundValidations = {
+  /**
+   * The validation of the presence of a response pulse on the bell chain
+   */
   bellResponse: Validation | null,
+  /**
+   * The validation of the ordering of the seed pulse
+   */
   seedOrdering: Validation | null,
+  /**
+   * The validation of the seed value
+   */
   seed: Validation | null,
 }
 
+/**
+ * A DIRNG round's data
+ */
 export type RoundData = {
+  /**
+   * The round number
+   */
   round: number,
+  /**
+   * The randomness for the round
+   */
   randomness: ByteHelper | null,
+  /**
+   * The chain
+   */
   chain: Chain,
+  /**
+   * The pulses for the round
+   */
   pulses: {
+    /**
+     * The result (randomness) pulse
+     */
     result: Pulse | null,
+    /**
+     * The request pulse
+     */
     request: Pulse,
+    /**
+     * The precommit pulse
+     */
     precommit: Pulse | null,
+    /**
+     * The error pulse
+     */
     error: Pulse | null,
   },
+  /**
+   * The validations for the round (if present)
+   */
   validations: RoundValidations,
+  /**
+   * Error for the round (if present)
+   */
   error: Error | null,
+  /**
+   * Whether the round is complete
+   */
   isComplete: boolean,
+  /**
+   * Whether the round succeeded and is valid based on the validations present
+   */
   isOk: boolean,
+  /**
+   * The stage of the round
+   */
   stage: string,
 }
 
@@ -47,6 +110,9 @@ const assert = (condition: boolean, message: string) => {
   }
 }
 
+/**
+ * Find the bell response pulse for a round
+ */
 async function findBellResponsePulse(round: RoundData, resolver: Resolver, options = { maxDepth: 10 }) {
   const precommit = round.pulses.precommit
   if (!precommit) {
@@ -80,6 +146,9 @@ async function findBellResponsePulse(round: RoundData, resolver: Resolver, optio
   return match[0]!
 }
 
+/**
+ * Find the seed pulse for a round
+ */
 async function findSeedPulse(round: RoundData, resolver: Resolver, options = { maxDepth: 10 }) {
   const precommit = round.pulses.precommit
   if (!precommit) {
@@ -116,6 +185,9 @@ async function findSeedPulse(round: RoundData, resolver: Resolver, options = { m
   return seed
 }
 
+/**
+ * Validate a bell response pulse
+ */
 export async function validateBellResponse(round: RoundData, resolver: Resolver): Promise<Validation> {
   try {
     assert(round.isComplete, 'Round is not complete')
@@ -126,6 +198,9 @@ export async function validateBellResponse(round: RoundData, resolver: Resolver)
   }
 }
 
+/**
+ * Validate the ordering of the seed pulse
+ */
 export async function validateSeedOrdering(round: RoundData, resolver: Resolver): Promise<Validation> {
   try {
     assert(round.isComplete, 'Round is not complete')
@@ -136,6 +211,9 @@ export async function validateSeedOrdering(round: RoundData, resolver: Resolver)
   }
 }
 
+/**
+ * Validate the seed value
+ */
 export async function validateSeed(round: RoundData, resolver: Resolver, params: any): Promise<Validation> {
   try {
     assert(round.isComplete, 'Round is not complete')
@@ -153,6 +231,9 @@ export async function validateSeed(round: RoundData, resolver: Resolver, params:
   }
 }
 
+/**
+ * Add validations to a round
+ */
 export async function withValidations(round: RoundData, resolver: Resolver, params?: any): Promise<RoundData> {
   const bellResponse = round.validations.bellResponse ?? await validateBellResponse(round, resolver)
   const seedOrdering = round.validations.seedOrdering ?? await validateSeedOrdering(round, resolver)
@@ -173,6 +254,9 @@ export async function withValidations(round: RoundData, resolver: Resolver, para
   return out
 }
 
+/**
+ * Convert pulses to round data
+ */
 export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, params?: any): Promise<RoundData> {
   const byStage = pulses.reduce((acc, pulse) => {
     const stage = pulse.value.content.payload.stage
@@ -219,28 +303,58 @@ export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, par
   return withValidations(ret, resolver, params)
 }
 
+/**
+ * The options for the DIRNG client
+ */
 export type DIRNGClientOptions = {
+  /**
+   * Alternate URL for the CURBy API
+   */
   url?: string,
-  chainId?: string,
+  /**
+   * Whether to validate the seed value (default: false). Requires fetching the parameters for each round
+   */
   validateSeed?: boolean,
+  /**
+   * The underlying fetch options
+   *
+   * @see {@link https://github.com/kwhitley/itty-fetcher}
+   */
   fetchOptions?: FetchOptions
 }
 
+/**
+ * A client for the Device Independent Randomness Generation (DIRNG) chain
+ *
+ * @example
+ * ```ts
+ * import { DIRNGClient } from '@buff-beacon-project/curby-client'
+ *
+ * const client = DIRNGClient.create()
+ * const randomness = await client.randomness()
+ * console.log(randomness)
+ * ```
+ */
 export class DIRNGClient {
-  private _chainId: string
   private _resolver: Resolver
   private _fetcher: FetcherType
   private _latest?: RoundData | null
   private _randomness?: ByteHelper | null
   private _validateSeed?: boolean
 
+  /**
+   * Create a new client
+   */
   static create(options?: DIRNGClientOptions) {
     return new DIRNGClient(options)
   }
 
+  /**
+   * Create a new client
+   * @param options - The options for the client
+   */
   constructor(options?: DIRNGClientOptions) {
     const url = options?.url ?? CURBY_API_URL
-    this._chainId = options?.chainId ?? CHAINS.curbyq
     this._resolver = new HttpStore(url, options?.fetchOptions)
     this._validateSeed = options?.validateSeed ?? false
     this._fetcher = fetcher({
@@ -249,6 +363,11 @@ export class DIRNGClient {
     })
   }
 
+  /**
+   * Fetch the parameters for a round
+   *
+   * Will validate the hash of the parameters
+   */
   async fetchRoundParams(round: RoundData) {
     const result = round.pulses.result
     if (!result) {
@@ -268,6 +387,11 @@ export class DIRNGClient {
     return JSON.parse(text)
   }
 
+  /**
+   * Fetch the raw bell data for a round
+   *
+   * Will validate the hash of the data
+   */
   async fetchRoundData(round: RoundData){
     const result = round.pulses.result
     if (!result) {
@@ -286,6 +410,9 @@ export class DIRNGClient {
     return res.text()
   }
 
+  /**
+   * Fetch and validate the round data for a round
+   */
   async fetchRound(round?: number | 'latest' | 'pending'): Promise<RoundData> {
     const which = round ?? 'latest'
     const path = `/round/${which}`
@@ -309,6 +436,9 @@ export class DIRNGClient {
     return withValidations(roundData, this._resolver, params)
   }
 
+  /**
+   * Refresh the internal state of the client
+   */
   async refresh() {
     const roundData = await this.fetchRound()
     this._latest = roundData
@@ -319,16 +449,25 @@ export class DIRNGClient {
     }
   }
 
+  /**
+   * Get the latest randomness
+   */
   async randomness() {
     await this.refresh()
     return this._randomness!
   }
 
+  /**
+   * Get the latest round data
+   */
   async latest() {
     await this.refresh()
     return this._latest!
   }
 
+  /**
+   * Wait for the next round
+   */
   async waitForNext({ signal, timeout }: WaitOptions = {}) {
     if (!this._latest) {
       await this.refresh()
@@ -354,6 +493,18 @@ export class DIRNGClient {
     }
   }
 
+  /**
+   * Watch for new rounds
+   *
+   * @param options - The options for waiting
+   *
+   * @example
+   * ```ts
+   * const client = DIRNGClient.create()
+   * for await (const round of client.watch()){
+   *   console.log(round)
+   * }
+   */
   async *watch(options?: WaitOptions) {
     yield await this.latest()
     while (!options?.signal?.aborted) {
