@@ -2,7 +2,7 @@
  * A constant containing the chain CIDs
  *
  * @group Constants
- * @constant {Object} CHAINS
+ * @param {Object} CHAINS
  */
 export default {
   /** CID of the RNG chain */

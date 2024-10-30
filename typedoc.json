@@ -12,5 +12,14 @@
     "notExported": true,
     "invalidLink": true,
     "notDocumented": true
-  }
+  },
+  "readme": "none",
+  "entryFileName": "index.md",
+  "out": "./docs/",
+  "exclude": [
+    "*.test.ts"
+  ],
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ],
 }

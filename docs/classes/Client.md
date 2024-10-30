@@ -1,10 +1,14 @@
-[@buff-beacon-project/curby-client](../README.md) / [Exports](../modules.md) / Client
+[**@buff-beacon-project/curby-client**](../index.md) • **Docs**
+
+***
+
+[@buff-beacon-project/curby-client](../index.md) / Client
 
 # Class: Client
 
 A client for fetching randomness from the CURBy RNG chain
 
-**`Example`**
+## Example
 
 ```ts
 import { Client } from '@buff-beacon-project/curby-client'
@@ -14,35 +18,17 @@ const randomness = await client.randomness()
 console.log(randomness)
 ```
 
-## Table of contents
-
-### Constructors
-
-- [constructor](Client.md#constructor)
-
-### Methods
-
-- [fetchPulsePair](Client.md#fetchpulsepair)
-- [latest](Client.md#latest)
-- [pair](Client.md#pair)
-- [prev](Client.md#prev)
-- [randomness](Client.md#randomness)
-- [refresh](Client.md#refresh)
-- [waitForNext](Client.md#waitfornext)
-- [watch](Client.md#watch)
-- [create](Client.md#create)
-
 ## Constructors
 
-### constructor
+### new Client()
 
-• **new Client**(`options?`): [`Client`](Client.md)
+> **new Client**(`options`?): [`Client`](Client.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options?` | [`ClientOptions`](../modules.md#clientoptions) | The options for the client |
+• **options?**: [`ClientOptions`](../type-aliases/ClientOptions.md)
+
+The options for the client
 
 #### Returns
 
@@ -50,151 +36,147 @@ console.log(randomness)
 
 #### Defined in
 
-[src/client.ts:112](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L112)
+[src/client.ts:112](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L112)
 
 ## Methods
 
-### fetchPulsePair
+### fetchPulsePair()
 
-▸ **fetchPulsePair**(`indexOrCid?`): `Promise`\<[`PulsePair`](../modules.md#pulsepair)\>
+> **fetchPulsePair**(`indexOrCid`?): `Promise`\<[`PulsePair`](../type-aliases/PulsePair.md)\>
 
 Fetch the a pulse and its predecessor by index or CID
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `indexOrCid?` | `number` \| `IntoCid` |
+• **indexOrCid?**: `number` \| `IntoCid`
 
 #### Returns
 
-`Promise`\<[`PulsePair`](../modules.md#pulsepair)\>
+`Promise`\<[`PulsePair`](../type-aliases/PulsePair.md)\>
 
 #### Defined in
 
-[src/client.ts:121](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L121)
+[src/client.ts:121](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L121)
 
-___
+***
 
-### latest
+### latest()
 
-▸ **latest**(): `Promise`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround)\>
+> **latest**(): `Promise`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md)\>
 
 Get the latest round data
 
 #### Returns
 
-`Promise`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround)\>
+`Promise`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md)\>
 
 #### Defined in
 
-[src/client.ts:174](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L174)
+[src/client.ts:174](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L174)
 
-___
+***
 
-### pair
+### pair()
 
-▸ **pair**(): `Promise`\<[`LatestPulsePair`](../modules.md#latestpulsepair)\>
+> **pair**(): `Promise`\<[`LatestPulsePair`](../type-aliases/LatestPulsePair.md)\>
 
 Get the latest and previous pulse
 
 #### Returns
 
-`Promise`\<[`LatestPulsePair`](../modules.md#latestpulsepair)\>
+`Promise`\<[`LatestPulsePair`](../type-aliases/LatestPulsePair.md)\>
 
 #### Defined in
 
-[src/client.ts:190](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L190)
+[src/client.ts:190](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L190)
 
-___
+***
 
-### prev
+### prev()
 
-▸ **prev**(): `Promise`\<`undefined` \| ``null`` \| `Pulse`\>
+> **prev**(): `Promise`\<`undefined` \| `null` \| `Pulse`\>
 
 Get the previous pulse
 
 #### Returns
 
-`Promise`\<`undefined` \| ``null`` \| `Pulse`\>
+`Promise`\<`undefined` \| `null` \| `Pulse`\>
 
 #### Defined in
 
-[src/client.ts:182](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L182)
+[src/client.ts:182](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L182)
 
-___
+***
 
-### randomness
+### randomness()
 
-▸ **randomness**(): `Promise`\<`undefined` \| ``null`` \| [`ByteHelper`](../modules.md#bytehelper)\>
+> **randomness**(): `Promise`\<`undefined` \| `null` \| [`ByteHelper`](../type-aliases/ByteHelper.md)\>
 
 Get the latest randomness
 
 #### Returns
 
-`Promise`\<`undefined` \| ``null`` \| [`ByteHelper`](../modules.md#bytehelper)\>
+`Promise`\<`undefined` \| `null` \| [`ByteHelper`](../type-aliases/ByteHelper.md)\>
 
 #### Defined in
 
-[src/client.ts:166](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L166)
+[src/client.ts:166](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L166)
 
-___
+***
 
-### refresh
+### refresh()
 
-▸ **refresh**(): `Promise`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround)\>
+> **refresh**(): `Promise`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md)\>
 
 Refresh the internal state of the client
 
 #### Returns
 
-`Promise`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround)\>
+`Promise`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md)\>
 
 #### Defined in
 
-[src/client.ts:144](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L144)
+[src/client.ts:144](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L144)
 
-___
+***
 
-### waitForNext
+### waitForNext()
 
-▸ **waitForNext**(`«destructured»?`): `Promise`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround)\>
+> **waitForNext**(`__namedParameters`): `Promise`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md)\>
 
 Wait for the next pulse
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | [`WaitOptions`](../modules.md#waitoptions) |
+• **\_\_namedParameters**: [`WaitOptions`](../type-aliases/WaitOptions.md) = `{}`
 
 #### Returns
 
-`Promise`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround)\>
+`Promise`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md)\>
 
 #### Defined in
 
-[src/client.ts:201](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L201)
+[src/client.ts:201](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L201)
 
-___
+***
 
-### watch
+### watch()
 
-▸ **watch**(`options?`): `AsyncGenerator`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround), `void`, `unknown`\>
+> **watch**(`options`?): `AsyncGenerator`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md), `void`, `unknown`\>
 
 Poll for the latest randomness
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options?` | [`WaitOptions`](../modules.md#waitoptions) | The options for waiting |
+• **options?**: [`WaitOptions`](../type-aliases/WaitOptions.md)
+
+The options for waiting
 
 #### Returns
 
-`AsyncGenerator`\<`undefined` \| [`RandomnessRound`](../modules.md#randomnessround), `void`, `unknown`\>
+`AsyncGenerator`\<`undefined` \| [`RandomnessRound`](../type-aliases/RandomnessRound.md), `void`, `unknown`\>
 
-**`Example`**
+#### Example
 
 ```ts
 const client = Client.create()
@@ -205,21 +187,21 @@ for await (const round of client.watch()){
 
 #### Defined in
 
-[src/client.ts:238](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L238)
+[src/client.ts:238](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L238)
 
-___
+***
 
-### create
+### create()
 
-▸ **create**(`options?`): [`Client`](Client.md)
+> `static` **create**(`options`?): [`Client`](Client.md)
 
 Create a new client
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options?` | [`ClientOptions`](../modules.md#clientoptions) | The options for the client |
+• **options?**: [`ClientOptions`](../type-aliases/ClientOptions.md)
+
+The options for the client
 
 #### Returns
 
@@ -227,4 +209,4 @@ Create a new client
 
 #### Defined in
 
-[src/client.ts:105](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/client.ts#L105)
+[src/client.ts:105](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/client.ts#L105)

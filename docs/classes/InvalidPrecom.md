@@ -1,46 +1,28 @@
-[@buff-beacon-project/curby-client](../README.md) / [Exports](../modules.md) / InvalidPrecom
+[**@buff-beacon-project/curby-client**](../index.md) • **Docs**
+
+***
+
+[@buff-beacon-project/curby-client](../index.md) / InvalidPrecom
 
 # Class: InvalidPrecom
 
 An error for when a precommitment value is invalid
 
-## Hierarchy
+## Extends
 
 - `Error`
 
-  ↳ **`InvalidPrecom`**
-
-## Table of contents
-
-### Constructors
-
-- [constructor](InvalidPrecom.md#constructor)
-
-### Properties
-
-- [cause](InvalidPrecom.md#cause)
-- [message](InvalidPrecom.md#message)
-- [name](InvalidPrecom.md#name)
-- [stack](InvalidPrecom.md#stack)
-- [prepareStackTrace](InvalidPrecom.md#preparestacktrace)
-- [stackTraceLimit](InvalidPrecom.md#stacktracelimit)
-
-### Methods
-
-- [captureStackTrace](InvalidPrecom.md#capturestacktrace)
-
 ## Constructors
 
-### constructor
+### new InvalidPrecom()
 
-• **new InvalidPrecom**(`msg?`, `options?`): [`InvalidPrecom`](InvalidPrecom.md)
+> **new InvalidPrecom**(`msg`, `options`): [`InvalidPrecom`](InvalidPrecom.md)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `msg` | `string` | `'Invalid Precommitment Value'` |
-| `options` | `any` | `{}` |
+• **msg**: `string` = `'Invalid Precommitment Value'`
+
+• **options**: `any` = `{}`
 
 #### Returns
 
@@ -48,131 +30,125 @@ An error for when a precommitment value is invalid
 
 #### Overrides
 
-Error.constructor
+`Error.constructor`
 
 #### Defined in
 
-[src/extract-randomness.ts:13](https://github.com/buff-beacon-project/curby-js-client/blob/2e276a8/src/extract-randomness.ts#L13)
+[src/extract-randomness.ts:13](https://github.com/buff-beacon-project/curby-js-client/blob/d961ea8fc79685bb955a01063f4c2d40db48941d/src/extract-randomness.ts#L13)
 
 ## Properties
 
-### cause
+### cause?
 
-• `Optional` **cause**: `unknown`
+> `optional` **cause**: `unknown`
 
 #### Inherited from
 
-Error.cause
+`Error.cause`
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es2022.error.d.ts:24
+node\_modules/typescript/lib/lib.es2022.error.d.ts:24
 
-___
+***
 
 ### message
 
-• **message**: `string`
+> **message**: `string`
 
 #### Inherited from
 
-Error.message
+`Error.message`
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1068
+node\_modules/typescript/lib/lib.es5.d.ts:1077
 
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
 #### Inherited from
 
-Error.name
+`Error.name`
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1067
+node\_modules/typescript/lib/lib.es5.d.ts:1076
 
-___
+***
 
-### stack
+### stack?
 
-• `Optional` **stack**: `string`
+> `optional` **stack**: `string`
 
 #### Inherited from
 
-Error.stack
+`Error.stack`
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1069
+node\_modules/typescript/lib/lib.es5.d.ts:1078
 
-___
+***
 
-### prepareStackTrace
+### prepareStackTrace()?
 
-▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+> `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
 
 Optional override for formatting stack traces
 
-**`See`**
+#### Parameters
 
-https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+• **err**: `Error`
 
-#### Type declaration
+• **stackTraces**: `CallSite`[]
 
-▸ (`err`, `stackTraces`): `any`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `err` | `Error` |
-| `stackTraces` | `CallSite`[] |
-
-##### Returns
+#### Returns
 
 `any`
 
+#### See
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
 #### Inherited from
 
-Error.prepareStackTrace
+`Error.prepareStackTrace`
 
 #### Defined in
 
-node_modules/bun-types/types.d.ts:13441
+node\_modules/bun-types/types.d.ts:13441
 
-___
+***
 
 ### stackTraceLimit
 
-▪ `Static` **stackTraceLimit**: `number`
+> `static` **stackTraceLimit**: `number`
 
 #### Inherited from
 
-Error.stackTraceLimit
+`Error.stackTraceLimit`
 
 #### Defined in
 
-node_modules/bun-types/types.d.ts:13445
+node\_modules/bun-types/types.d.ts:13445
 
 ## Methods
 
-### captureStackTrace
+### captureStackTrace()
 
-▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+> `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
 
 Create .stack property on a target object
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `targetObject` | `object` |
-| `constructorOpt?` | `Function` |
+• **targetObject**: `object`
+
+• **constructorOpt?**: `Function`
 
 #### Returns
 
@@ -180,8 +156,8 @@ Create .stack property on a target object
 
 #### Inherited from
 
-Error.captureStackTrace
+`Error.captureStackTrace`
 
 #### Defined in
 
-node_modules/bun-types/types.d.ts:13434
+node\_modules/bun-types/types.d.ts:13434
