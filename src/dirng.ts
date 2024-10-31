@@ -292,7 +292,7 @@ export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, par
   if (!chain) {
     throw new Error('No chain found')
   }
-  const randomness = isComplete ?
+  const randomness = isComplete && isOk ?
     byteHelper(
       byStage.randomness!.value.content.payload.randomness,
       byStage.randomness!.value.content.payload.timestamp
@@ -459,7 +459,7 @@ export class DIRNGClient {
     const pulses = await Promise.all(json.map(fromJSON)) as Pulse[]
     const roundData = await pulsesToRoundData(pulses, this._resolver)
     let params
-    if (this._validateSeed && roundData.isComplete) {
+    if (this._validateSeed && roundData.isComplete && roundData.isOk) {
       params = await this.fetchRoundParams(roundData)
     }
     return withValidations(roundData, this._resolver, params)
