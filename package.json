@@ -43,6 +43,7 @@
     "release": "bunx bumpp --no-push"
   },
   "devDependencies": {
+    "@aryzing/bun-mock-fetch": "^0.2.2",
     "bun-types": "latest",
     "tsup": "^8.3.0",
     "typedoc": "^0.26.10",

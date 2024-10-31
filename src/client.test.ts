@@ -1,14 +1,16 @@
 import { expect, test } from 'bun:test'
 import { Client } from './client'
 
+const url = 'https://random.colorado.edu/api'
+
 test('curby client', async () => {
-  const client = Client.create({ url: 'http://localhost:3000' })
+  const client = Client.create({ url })
   const randomness = await client.randomness()
   expect(randomness).toBeDefined()
 })
 
 test('shuffle array', async () => {
-  const client = Client.create({ url: 'http://localhost:3000' })
+  const client = Client.create({ url })
   const randomness = await client.randomness()
   const array = [1, 2, 3, 4, 5]
   const shuffled = randomness?.shuffled(array)
@@ -16,7 +18,7 @@ test('shuffle array', async () => {
 })
 
 test('list of 8 bit numbers', async () => {
-  const client = Client.create({ url: 'http://localhost:3000' })
+  const client = Client.create({ url })
   const randomness = await client.randomness()
   const numbers = randomness?.bits(8)
   expect(numbers).toBeDefined()

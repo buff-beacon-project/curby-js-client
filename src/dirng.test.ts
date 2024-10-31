@@ -1,22 +1,25 @@
 import { expect, test } from 'bun:test'
 import { DIRNGClient } from './dirng'
+import './test/mocks.js'
 
 test('dirng client get round', async () => {
-  const client = DIRNGClient.create({ url: 'http://localhost:3000', validateSeed: true })
+  const client = DIRNGClient.create({ validateSeed: true })
   const round = await client.latest()
   expect(round).toBeDefined()
+  expect(round.isOk).toBe(true)
+  expect(round.isComplete).toBe(true)
   expect(round.validations.bellResponse).toBeDefined()
   expect(round.validations.seedOrdering).toBeDefined()
 })
 
 test('dirng client get pending round', async () => {
-  const client = DIRNGClient.create({ url: 'http://localhost:3000', validateSeed: true })
+  const client = DIRNGClient.create({ validateSeed: true })
   const round = await client.fetchRound('pending')
   expect(round).toBeDefined()
 })
 
 test('shuffle array', async () => {
-  const client = DIRNGClient.create({ url: 'http://localhost:3000', validateSeed: true })
+  const client = DIRNGClient.create({ validateSeed: true })
   const randomness = await client.randomness()
   const array = [1, 2, 3, 4, 5]
   const shuffled = randomness.shuffled(array)
