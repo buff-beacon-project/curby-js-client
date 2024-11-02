@@ -1,11 +1,11 @@
 name: Publish Package to npmjs
 on:
   release:
-    types: [published]
+    types: [published, released]
   workflow_dispatch:
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -17,7 +17,8 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm publish --provenance --access public --dry-run
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
