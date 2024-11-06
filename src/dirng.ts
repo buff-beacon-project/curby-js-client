@@ -27,6 +27,10 @@ export type Validation = {
    * An optional reason for failure
    */
   reason?: string,
+  /**
+   * Additional data for the validation
+   */
+  data?: any,
 }
 
 /**
@@ -204,7 +208,10 @@ export async function validateBellResponse(round: RoundData, resolver: Resolver)
   try {
     assert(round.isComplete, 'Round is not complete')
     const bellResponse = await findBellResponsePulse(round, resolver)
-    return { ok: true }
+    const data = {
+      pulse: bellResponse,
+    }
+    return { ok: true, data }
   } catch (err: any) {
     return { ok: false, reason: err.message }
   }
@@ -219,7 +226,10 @@ export async function validateSeedOrdering(round: RoundData, resolver: Resolver)
   try {
     assert(round.isComplete, 'Round is not complete')
     const seed = await findSeedPulse(round, resolver)
-    return { ok: true }
+    const data = {
+      pulse: seed,
+    }
+    return { ok: true, data }
   } catch (err: any) {
     return { ok: false, reason: err.message }
   }
@@ -241,7 +251,11 @@ export async function validateSeed(round: RoundData, resolver: Resolver, params:
     const seedLength = round.pulses.precommit!.value.content.payload.seedLength
     const seedBytes: string = await shake256([seed.cid.multihash.digest], 'B64', { outputLen: seedLength })
     assert(seedBytes === params.seed, 'Seed mismatch')
-    return { ok: true }
+    const data = {
+      bytes: params.seed,
+      pulse: seed,
+    }
+    return { ok: true, data }
   } catch (err: any) {
     return { ok: false, reason: err.message }
   }

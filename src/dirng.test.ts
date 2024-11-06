@@ -9,7 +9,12 @@ test('dirng client get round', async () => {
   expect(round.isOk).toBe(true)
   expect(round.isComplete).toBe(true)
   expect(round.validations.bellResponse).toBeDefined()
+  expect(round.validations.bellResponse?.data.pulse).toBeDefined()
   expect(round.validations.seedOrdering).toBeDefined()
+  expect(round.validations.seedOrdering?.data.pulse).toBeDefined()
+  expect(round.validations.seed).toBeDefined()
+  expect(round.validations.seed?.data.bytes).toBeDefined()
+  expect(round.validations.seed?.data.pulse).toBeDefined()
 })
 
 test('dirng client get pending round', async () => {
