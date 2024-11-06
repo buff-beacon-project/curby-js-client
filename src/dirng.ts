@@ -301,7 +301,7 @@ export async function pulsesToRoundData(pulses: Pulse[], resolver: Resolver, par
   }, {} as Record<string, Pulse>)
 
   const isOk = !byStage.error
-  const isComplete = Boolean(byStage.request && byStage.precommit && (byStage.randomness || byStage.error))
+  const isComplete = Boolean(byStage.request && ((byStage.precommit && byStage.randomness) || byStage.error))
   const { chain } = await resolver.resolve({ chain: pulses[0].value.content.chain })
   if (!chain) {
     throw new Error('No chain found')
