@@ -239,7 +239,7 @@ export async function validateSeed(round: RoundData, resolver: Resolver, params:
     assert(hashfn === 'shake256', 'Unsupported seed algorithm')
     // check params.seed corresponds to seed pulse
     const seedLength = round.pulses.precommit!.value.content.payload.seedLength
-    const seedBytes = await shake256([seed.cid.multihash.digest], 'B64', { outputLen: seedLength })
+    const seedBytes: string = await shake256([seed.cid.multihash.digest], 'B64', { outputLen: seedLength })
     assert(seedBytes === params.seed, 'Seed mismatch')
     return { ok: true }
   } catch (err: any) {
