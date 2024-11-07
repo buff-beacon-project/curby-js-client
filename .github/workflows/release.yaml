@@ -1,6 +1,9 @@
 name: Publish Package to npmjs
 on:
   workflow_call:
+    secrets:
+      NPM_TOKEN:
+        required: true
   workflow_dispatch:
 
 jobs:
