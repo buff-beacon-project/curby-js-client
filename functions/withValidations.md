@@ -24,4 +24,4 @@ Add validations to a round
 
 ## Defined in
 
-[src/dirng.ts:255](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L255)
+[src/dirng.ts:269](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L269)

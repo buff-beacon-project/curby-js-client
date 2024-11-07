@@ -38,7 +38,7 @@ The options for the client
 
 #### Defined in
 
-[src/dirng.ts:379](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L379)
+[src/dirng.ts:393](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L393)
 
 ## Methods
 
@@ -58,7 +58,7 @@ Fetch and validate the round data for a round
 
 #### Defined in
 
-[src/dirng.ts:439](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L439)
+[src/dirng.ts:457](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L457)
 
 ***
 
@@ -80,7 +80,7 @@ Will validate the hash of the data
 
 #### Defined in
 
-[src/dirng.ts:418](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L418)
+[src/dirng.ts:432](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L432)
 
 ***
 
@@ -102,7 +102,7 @@ Will validate the hash of the parameters
 
 #### Defined in
 
-[src/dirng.ts:394](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L394)
+[src/dirng.ts:408](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L408)
 
 ***
 
@@ -118,7 +118,7 @@ Get the latest round data
 
 #### Defined in
 
-[src/dirng.ts:492](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L492)
+[src/dirng.ts:510](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L510)
 
 ***
 
@@ -134,7 +134,7 @@ Get the latest randomness
 
 #### Defined in
 
-[src/dirng.ts:484](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L484)
+[src/dirng.ts:502](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L502)
 
 ***
 
@@ -150,7 +150,7 @@ Refresh the internal state of the client
 
 #### Defined in
 
-[src/dirng.ts:471](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L471)
+[src/dirng.ts:489](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L489)
 
 ***
 
@@ -170,7 +170,7 @@ Wait for the next round
 
 #### Defined in
 
-[src/dirng.ts:500](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L500)
+[src/dirng.ts:518](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L518)
 
 ***
 
@@ -200,7 +200,7 @@ for await (const round of client.watch()){
 
 #### Defined in
 
-[src/dirng.ts:537](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L537)
+[src/dirng.ts:555](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L555)
 
 ***
 
@@ -220,4 +220,4 @@ Create a new client
 
 #### Defined in
 
-[src/dirng.ts:371](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/dirng.ts#L371)
+[src/dirng.ts:385](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L385)

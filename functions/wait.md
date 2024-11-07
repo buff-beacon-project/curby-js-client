@@ -39,4 +39,4 @@ console.log('One second has passed')
 
 ## Defined in
 
-[src/timing.ts:44](https://github.com/buff-beacon-project/curby-js-client/blob/effd2d56c82ee5d2722332b349877f5127bbcc3f/src/timing.ts#L44)
+[src/timing.ts:44](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/timing.ts#L44)
