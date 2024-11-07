@@ -436,15 +436,19 @@ export class DIRNGClient {
     }
     const dataHash = result.value.content.payload.dataHash
     const roundNumber = round.round
-    const res: Response = await this._fetcher.get(
+    const body: string = await this._fetcher.get(
       `/round/${roundNumber}/data`,
       { autoParse: false }
     )
-    const digest = await sha3512(res.body!, 'HEX')
+    if (!body) {
+      throw new Error('API returned no data')
+    }
+    const bytes = new TextEncoder().encode(body)
+    const digest = await sha3512([bytes], 'HEX')
     if (digest !== dataHash) {
       throw new Error('Invalid data hash')
     }
-    return res.text()
+    return body
   }
 
   /**
