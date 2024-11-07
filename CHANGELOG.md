@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/buff-beacon-project/curby-js-client/compare/v1.0.0...v1.1.0) (2024-11-07)
+
+
+### Features
+
+* Add optional data field to round validations ([979ca3b](https://github.com/buff-beacon-project/curby-js-client/commit/979ca3b27988c715e9f0f0325b7bfff97262fdf1))
+
+
+### Bug Fixes
+
+* fetchRoundData incorrectly fetched data ([c88b0ac](https://github.com/buff-beacon-project/curby-js-client/commit/c88b0ac41fbe846eca3754fc1c536c37f9a9da61))
+* isComplete was reporting not complete if precommit pulse missing ([ef02d37](https://github.com/buff-beacon-project/curby-js-client/commit/ef02d375d38b83cf16bf02afe434d760dd58bc94))
+* type declarations corrected for hasher ([54db2bf](https://github.com/buff-beacon-project/curby-js-client/commit/54db2bfee312db8b956a31c60744d9382b2f0f16))
+
 ## 1.0.0 (2024-11-02)
 
 
