@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.3...v1.1.4) (2024-11-08)
+
+
+### Bug Fixes
+
+* return datahash from precom or error in case of no precom ([9b940cc](https://github.com/buff-beacon-project/curby-js-client/commit/9b940ccfcf402e8e8b36fb547d7e8e7891ecfa56))
+
 ## [1.1.3](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.2...v1.1.3) (2024-11-08)
 
 
