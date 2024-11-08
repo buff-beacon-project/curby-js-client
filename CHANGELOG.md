@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.0...v1.1.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* fetchRoundData failed to work when round terminated as error ([41177ef](https://github.com/buff-beacon-project/curby-js-client/commit/41177efb953075655067b908d7e95d8e42ce41cb))
+
 ## [1.1.0](https://github.com/buff-beacon-project/curby-js-client/compare/v1.0.0...v1.1.0) (2024-11-07)
 
 
