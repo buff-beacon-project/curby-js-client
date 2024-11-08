@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.2...v1.1.3) (2024-11-08)
+
+
+### Bug Fixes
+
+* return datahash from precommit pulse not final pulse ([00440aa](https://github.com/buff-beacon-project/curby-js-client/commit/00440aa15d5799fcf265f843bc7d02cec1c34880))
+
 ## [1.1.2](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.1...v1.1.2) (2024-11-08)
 
 
