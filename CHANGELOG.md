@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.1...v1.1.2) (2024-11-08)
+
+
+### Bug Fixes
+
+* better error information upon data hash mismatch ([c7c5892](https://github.com/buff-beacon-project/curby-js-client/commit/c7c5892ff405f68b178d23141b43f977b4f13825))
+* better retrieval of dataHash for fetchRoundData ([275d06c](https://github.com/buff-beacon-project/curby-js-client/commit/275d06c6ebff3485022bcf7bea287b8acb69f17b))
+
 ## [1.1.1](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.0...v1.1.1) (2024-11-08)
 
 
