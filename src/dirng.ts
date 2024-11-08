@@ -120,6 +120,17 @@ const assert = (condition: boolean, message: string) => {
   }
 }
 
+const getDataHash = (round: RoundData) => {
+  const { precommit, result, error } = round.pulses
+  const final = result || error
+  const dataHash = final?.value.content.payload.dataHash
+  const precomDataHash = precommit?.value.content.payload.dataHash
+  if (dataHash && precomDataHash && precomDataHash !== dataHash) {
+    throw new Error('Pulses report different data hashes')
+  }
+  return dataHash
+}
+
 /**
  * Find the bell response pulse for a round
  *
@@ -433,9 +444,7 @@ export class DIRNGClient {
    * Will validate the hash of the data
    */
   async fetchRoundData(round: RoundData){
-    const result = round.pulses.result
-    const error = round.pulses.error
-    const dataHash = (result || error)?.value.content.payload.dataHash
+    const dataHash = getDataHash(round)
     if (!dataHash) {
       throw new Error('No data hash found')
     }
