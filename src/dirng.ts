@@ -146,8 +146,7 @@ async function findBellResponsePulse(round: RoundData, resolver: Resolver, optio
       if (!payload.dataHash) {
         return false
       }
-      return payload.ref.toString() === request.cid.toString() &&
-        payload.dataHash === dataHash
+      return payload.ref.toString() === request.cid.toString()
     }),
     take(1),
     collect
@@ -155,7 +154,11 @@ async function findBellResponsePulse(round: RoundData, resolver: Resolver, optio
   if (!match) {
     throw new Error('No bell response found for precommit pulse')
   }
-  return match[0]!
+  const pulse = match[0]!
+  if (pulse.value.content.payload.dataHash !== dataHash){
+    throw new Error('Bell response data hash does not match precommit data hash')
+  }
+  return pulse
 }
 
 /**
