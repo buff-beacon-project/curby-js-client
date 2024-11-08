@@ -431,10 +431,11 @@ export class DIRNGClient {
    */
   async fetchRoundData(round: RoundData){
     const result = round.pulses.result
-    if (!result) {
-      throw new Error('No result pulse found')
+    const error = round.pulses.error
+    const dataHash = (result || error)?.value.content.payload.dataHash
+    if (!dataHash) {
+      throw new Error('No data hash found')
     }
-    const dataHash = result.value.content.payload.dataHash
     const roundNumber = round.round
     const body: string = await this._fetcher.get(
       `/round/${roundNumber}/data`,
