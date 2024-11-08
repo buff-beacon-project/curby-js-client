@@ -32,4 +32,4 @@ An optional reason for failure
 
 ## Defined in
 
-[src/dirng.ts:21](https://github.com/buff-beacon-project/curby-js-client/blob/a66d984f301cf986f3d63ed0a96c3b3cbe7f067a/src/dirng.ts#L21)
+[src/dirng.ts:21](https://github.com/buff-beacon-project/curby-js-client/blob/e85b824d126d92d22842a10bef1c81bb4fdd007c/src/dirng.ts#L21)
