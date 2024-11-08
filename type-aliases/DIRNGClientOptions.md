@@ -36,4 +36,4 @@ Whether to validate the seed value (default: false). Requires fetching the param
 
 ## Defined in
 
-[src/dirng.ts:359](https://github.com/buff-beacon-project/curby-js-client/blob/ad263e3f2ef194a96a0a2fa193e82c0d10bbd65c/src/dirng.ts#L359)
+[src/dirng.ts:359](https://github.com/buff-beacon-project/curby-js-client/blob/07a2ea08c8e0ca63b47f1d08219657d53af485a2/src/dirng.ts#L359)

@@ -20,4 +20,4 @@ zip the provided arrays together
 
 ## Defined in
 
-[src/extract-randomness.ts:34](https://github.com/buff-beacon-project/curby-js-client/blob/ad263e3f2ef194a96a0a2fa193e82c0d10bbd65c/src/extract-randomness.ts#L34)
+[src/extract-randomness.ts:34](https://github.com/buff-beacon-project/curby-js-client/blob/07a2ea08c8e0ca63b47f1d08219657d53af485a2/src/extract-randomness.ts#L34)

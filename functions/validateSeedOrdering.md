@@ -22,4 +22,4 @@ Validate the ordering of the seed pulse
 
 ## Defined in
 
-[src/dirng.ts:239](https://github.com/buff-beacon-project/curby-js-client/blob/ad263e3f2ef194a96a0a2fa193e82c0d10bbd65c/src/dirng.ts#L239)
+[src/dirng.ts:239](https://github.com/buff-beacon-project/curby-js-client/blob/07a2ea08c8e0ca63b47f1d08219657d53af485a2/src/dirng.ts#L239)
