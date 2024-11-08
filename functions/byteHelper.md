@@ -22,4 +22,4 @@ Create a [ByteHelper](../type-aliases/ByteHelper.md) from a set of bytes and a t
 
 ## Defined in
 
-[src/byte-helper.ts:118](https://github.com/buff-beacon-project/curby-js-client/blob/ce0e851c9bd9e50ac8f84d3519f029bd8ad289d0/src/byte-helper.ts#L118)
+[src/byte-helper.ts:118](https://github.com/buff-beacon-project/curby-js-client/blob/ad263e3f2ef194a96a0a2fa193e82c0d10bbd65c/src/byte-helper.ts#L118)

@@ -38,4 +38,4 @@ The randomness
 
 ## Defined in
 
-[src/client.ts:38](https://github.com/buff-beacon-project/curby-js-client/blob/ce0e851c9bd9e50ac8f84d3519f029bd8ad289d0/src/client.ts#L38)
+[src/client.ts:38](https://github.com/buff-beacon-project/curby-js-client/blob/ad263e3f2ef194a96a0a2fa193e82c0d10bbd65c/src/client.ts#L38)
