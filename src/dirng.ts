@@ -128,7 +128,7 @@ const getDataHash = (round: RoundData) => {
   if (dataHash && precomDataHash && precomDataHash !== dataHash) {
     throw new Error('Pulses report different data hashes')
   }
-  return dataHash
+  return precomDataHash
 }
 
 /**
