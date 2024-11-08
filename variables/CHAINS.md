@@ -34,4 +34,4 @@ CID of the RNG chain
 
 ## Defined in
 
-[src/chains.js:7](https://github.com/buff-beacon-project/curby-js-client/blob/e85b824d126d92d22842a10bef1c81bb4fdd007c/src/chains.js#L7)
+[src/chains.js:7](https://github.com/buff-beacon-project/curby-js-client/blob/ce0e851c9bd9e50ac8f84d3519f029bd8ad289d0/src/chains.js#L7)

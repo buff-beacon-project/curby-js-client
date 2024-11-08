@@ -24,4 +24,4 @@ Validate the seed value
 
 ## Defined in
 
-[src/dirng.ts:243](https://github.com/buff-beacon-project/curby-js-client/blob/e85b824d126d92d22842a10bef1c81bb4fdd007c/src/dirng.ts#L243)
+[src/dirng.ts:257](https://github.com/buff-beacon-project/curby-js-client/blob/ce0e851c9bd9e50ac8f84d3519f029bd8ad289d0/src/dirng.ts#L257)
