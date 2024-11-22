@@ -35,7 +35,7 @@ mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvt
   }
 })
 
-mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s/pulses/latest', {
+const latestPulse = {
   headers: { 'Content-Type': 'application/json' },
   data: {
     "cid": {
@@ -121,95 +121,101 @@ mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvt
       "signature": "eyJhbGciOiJSUzI1NiJ9.FEBk5A2sV9b-PBSGFkSUM5yCS6NsAV4aWWn0zt7ueCKqRVxa2jssnvC0wCDQoBKFe0JXmd3QerKglxO7yyK77SR_.Tvd9wKczKHxGlPvSYfnomSfttlZwBanBgwQiWi58goiBVKmp-ak_QKPHgF5i4U31wHGMiCqoq-ySOvFHKrNPg1jh1oZy85oEePjYKt-dmHKDH_Ozm9D6kbxjL-S-f1oHEQiOj6xrFLyLxedHjrHNZ5C2-OBF4GwjtWjmEgTk7vCTbz8cC2zvgnd6cQl-vqMtpsJ0Gi_drRpY9rtBNuQeyx0nWgDalQ3VdmF7BCEMeFxqIyevx3Np8BKkykNTc6MWMqR-uyFF8GMRcK1owax2jCWMDcTaYO51rzWZNq2ObIqYrZb1cSg40zZu5eCNjVZoeV_EJWsA_w8-uwOLZhgyhS-Blyj0IM0MARVJ3DrUWDig5C3focYeJF1lCZJNwKlnyy2Ttt71ZC_U2zNACBTUd0Pg_0dy_umpAdBaDqJLsm_LTe4-MfYDGev_hhkwcpHvyiqDuZxqoISC9qd0gIEetsz_V-XhNaI_0PR_mnZWGKvHw__gjkeaKpF_ly_-0XJcOzvZBe5dql6XNc-3wsTm_FyEU4yGmd1czK7m_R83gjC9mZhprTOf_DcqgD_UtxzGIbjrMVdzrjIXIu2krPW-tE05Kuk4n3sEFlqNEzuRJevY4z5DvGAdlXAgfbP9RncvqKcso0pvUn84tOl6p8abXEM91mpeveZBg9edOKzdgM8"
     }
   }
-})
+}
 
-mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s/pulses/bafyriqd4ppudk6na3lq5qzelkgwcc2xglsdz52icgn6myuwdxaaalwztgbqekegmr7hku42jzdcyvg4aqbylp5oxyweweozrj4wug7vg5pxdu', {
+const prevPulse = {
   headers: { 'Content-Type': 'application/json' },
   data: {
-  "cid": {
-    "/": "bafyriqd4ppudk6na3lq5qzelkgwcc2xglsdz52icgn6myuwdxaaalwztgbqekegmr7hku42jzdcyvg4aqbylp5oxyweweozrj4wug7vg5pxdu"
-  },
-  "data": {
-    "content": {
-      "chain": {
-        "/": "bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s"
-      },
-      "index": 534322,
-      "links": [
-        {
-          "/": "bafyriqebw7wz4z6n3bi3yxe5ersst5wpm6dbcpoat4adzkx4gkznz3q3xq7mx6qpgyt74jxibz4ve7wt2gleiavoabnludyaqjzqe66ap6xee"
-        },
-        {
-          "/": "bafyriqdslnqhuhvvtufmb4jexhu35skaksrwzlresczgibl7jz6mae7equxkpcofoibkxcrb7fxlmmktdi2zgxubzonidckp7dywzvd34ld46"
-        },
-        {
-          "/": "bafyriqckanwlo4tfl7ek6yqmx6oxuxpj7e5kevff7hugljjdmipbzl44w36o63eoilosvlsf7em4z4vyfgtnsb4xlvb47rkxk7z3kkpjybuuu"
-        },
-        {
-          "/": "bafyriqfju76rchj2szxppuyb6fuqzh6sacaiu4keeponym2h6kk5dvgmf7vcqbtucoe5f5l3cgyvjo5vri6zgi2nu247eid47bk5hzrzrajck"
-        }
-      ],
-      "mixins": [
-        {
-          "chain": {
-            "/": "bafyriqa5k2d3t3r774geicueaed2wc2fosjwqeexfhwbptfgq7rcn5mwucnhfeuxu2nxbrch3rl6yqjlozhuswo5ln3xwjm35iftt3tpqlcgs"
-          },
-          "value": {
-            "/": "bafyriqg4rwszscgicealforbbzqnjrszfntup7exz27nwqv3cynw2xzuztrtzcomrgboui54srb7w57lfx64pmdbsym52blttbfcl7ou7qo46"
-          }
-        },
-        {
-          "chain": {
-            "/": "bafyriqgdssb6xcnhimkaosz2rndn4cqwqa4iute5ebyldwcucbk7pgzrrhscaslqc4omaqoqezhqp3r7yi2qcrvu6hwrjce7ccj77ukengwa2"
-          },
-          "value": {
-            "/": "bafyriqaqtqvft67qod24qeaj74w4j6fzdnopnf55n5v5dxyaxeocnqtvnty7bqlepghdfvsdoxi7effche7tekte7ceedbxj4psc5y3n27dq2"
-          }
-        },
-        {
-          "chain": {
-            "/": "bafyriqei75kvbmjdbw5rixjmmm6nsoc4ik2wnd2vuk62zerd54geirmhewywnirfuzlwub45wgaft44tf3wabzxv6fcursbkgcaqouulhyfsc"
-          },
-          "value": {
-            "/": "bafyriqhupp3i2wztq43fgeu2an6y2qj72r7sfqu6d7uv6bk5nawvj42pwlo34ekq4x55eizpjjqir5iwuhr2gsvmtgp6gxty4fwamxnedqd6a"
-          }
-        },
-        {
-          "chain": {
-            "/": "bafyriqhijw5soalbtppuwwjbskfiriqy6swa5qd5trgbzx4nypnu7mp7iyhx7m2iin2nxnglmngvjgirzb7bvlisxq3uygoik7ozbybxnftiw"
-          },
-          "value": {
-            "/": "bafyriqbz7kw2h2jwv53ivwmpekel37emos25iu57eyest4lpu5eegnmx5zoti2tnutmm3xlobovug3iklpir55ot2csnt5yo4ql5fayotkuvw"
-          }
-        },
-        {
-          "chain": {
-            "/": "bafyriqe3zxf5g4ifgqhea5zozxpdcfi5qcpkfpogtxzbizmmuxdjuzuq44a2cifbr7xplo4kcfsdz2c5pxfxektavrqxxb3nvbmclxz7qiz6e"
-          },
-          "value": {
-            "/": "bafyriqfporpydf3otcb2wkuwazptxfazx2aogj4oqixiidv3hancjybogcm3642ird4vnuul7iu67t3nvxhns7o5aey3nketncy24ss6fkukk"
-          }
-        }
-      ],
-      "payload": {
-        "pre": {
-          "/": {
-            "bytes": "FECrk5vR8+sJr5eSEQl7500ATa52OO+Ty1QwjI68pDtreaL6IMZgvZz4sg36EAYwmAEtXOrvtW7PdonwNoG00OeC"
-          }
-        },
-        "salt": {
-          "/": {
-            "bytes": "Hwy4/QjkvpCfe/lhzyHla4nJ1FRDGxrMlfYbIusZiGCFH3RhAFGo9kNnwh7sxDNnME4jBwyzeCmvfiGB1PWg1g"
-          }
-        },
-        "timestamp": "2024-10-31T20:03:00.551Z"
-      },
-      "source": "random.colorado.edu"
+    "cid": {
+      "/": "bafyriqd4ppudk6na3lq5qzelkgwcc2xglsdz52icgn6myuwdxaaalwztgbqekegmr7hku42jzdcyvg4aqbylp5oxyweweozrj4wug7vg5pxdu"
     },
-    "signature": "eyJhbGciOiJSUzI1NiJ9.FEDiTMXTtWY3uHRrm3roFAzIKqXCdqhjBC_5qwfO7FNtYRM6WDpQNB1eHe8wy6kTpZbDOWEseWIRaQM03-DKR9mG.mX7nW6vBWMkgrGkR-ucUlpdAfGXmcP-_UoGRYPe8U9IXk6W9uA_0_UPr4yoJEXuMQE7gwnbNqvIPWPoXMhP6YeXYG3ZuTZ6jxxkjnrRTyCkhmBdrwpSO0XID8gsYMpMJs8Z-5DyWCi_OhcYDY_WUE3Md_5_FUJkcWAe-eby9pJlJBAYjRJ9j31EZ8Qt5QfL8ZBQd0qWfZxLreKTufrmH463UKsh3lZ7lhqLa1PbWbWzzVCKNASJgDlwP-paj60MbkDBe5y4A4b2MrsgZ4tL5YZPDOqpnRkl6Sr1BDWMjM0P0-o-qmAQWO3W0EDcSshQE3WB5bNSABoHQEp7SXKcl-mj-iYASgeKnb2ybZV7ilVtIbcgYP0cnQwm08t97SUm7Ai7LgN0SZ_43hWqJTU_DfofU8ktq4KdbdF3rajcQfZ-kPoV68FCdrubawvFL73MgHNlF9Q9AVr8trqLKZ08Hsl8T0E1GRzVcLrekgoKiPdiGUF70ReQL1NjrGInm3ETMaTtpiyHceJhAkCmdPP9ChnZP81di27jF-K2roh5AKI-wjShbIszhV_r78TX2ZsJ2o_qxyGvHtE8itWHaN3IP_VJpv0BA35_nN6hT_gY5AFD0xm-Q2N2GDfH5zzyS6aXTGMRjJibpsN_l8Bc-h1OgJWnigxLboZk2YwpOBeL-JUU"
+    "data": {
+      "content": {
+        "chain": {
+          "/": "bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s"
+        },
+        "index": 534322,
+        "links": [
+          {
+            "/": "bafyriqebw7wz4z6n3bi3yxe5ersst5wpm6dbcpoat4adzkx4gkznz3q3xq7mx6qpgyt74jxibz4ve7wt2gleiavoabnludyaqjzqe66ap6xee"
+          },
+          {
+            "/": "bafyriqdslnqhuhvvtufmb4jexhu35skaksrwzlresczgibl7jz6mae7equxkpcofoibkxcrb7fxlmmktdi2zgxubzonidckp7dywzvd34ld46"
+          },
+          {
+            "/": "bafyriqckanwlo4tfl7ek6yqmx6oxuxpj7e5kevff7hugljjdmipbzl44w36o63eoilosvlsf7em4z4vyfgtnsb4xlvb47rkxk7z3kkpjybuuu"
+          },
+          {
+            "/": "bafyriqfju76rchj2szxppuyb6fuqzh6sacaiu4keeponym2h6kk5dvgmf7vcqbtucoe5f5l3cgyvjo5vri6zgi2nu247eid47bk5hzrzrajck"
+          }
+        ],
+        "mixins": [
+          {
+            "chain": {
+              "/": "bafyriqa5k2d3t3r774geicueaed2wc2fosjwqeexfhwbptfgq7rcn5mwucnhfeuxu2nxbrch3rl6yqjlozhuswo5ln3xwjm35iftt3tpqlcgs"
+            },
+            "value": {
+              "/": "bafyriqg4rwszscgicealforbbzqnjrszfntup7exz27nwqv3cynw2xzuztrtzcomrgboui54srb7w57lfx64pmdbsym52blttbfcl7ou7qo46"
+            }
+          },
+          {
+            "chain": {
+              "/": "bafyriqgdssb6xcnhimkaosz2rndn4cqwqa4iute5ebyldwcucbk7pgzrrhscaslqc4omaqoqezhqp3r7yi2qcrvu6hwrjce7ccj77ukengwa2"
+            },
+            "value": {
+              "/": "bafyriqaqtqvft67qod24qeaj74w4j6fzdnopnf55n5v5dxyaxeocnqtvnty7bqlepghdfvsdoxi7effche7tekte7ceedbxj4psc5y3n27dq2"
+            }
+          },
+          {
+            "chain": {
+              "/": "bafyriqei75kvbmjdbw5rixjmmm6nsoc4ik2wnd2vuk62zerd54geirmhewywnirfuzlwub45wgaft44tf3wabzxv6fcursbkgcaqouulhyfsc"
+            },
+            "value": {
+              "/": "bafyriqhupp3i2wztq43fgeu2an6y2qj72r7sfqu6d7uv6bk5nawvj42pwlo34ekq4x55eizpjjqir5iwuhr2gsvmtgp6gxty4fwamxnedqd6a"
+            }
+          },
+          {
+            "chain": {
+              "/": "bafyriqhijw5soalbtppuwwjbskfiriqy6swa5qd5trgbzx4nypnu7mp7iyhx7m2iin2nxnglmngvjgirzb7bvlisxq3uygoik7ozbybxnftiw"
+            },
+            "value": {
+              "/": "bafyriqbz7kw2h2jwv53ivwmpekel37emos25iu57eyest4lpu5eegnmx5zoti2tnutmm3xlobovug3iklpir55ot2csnt5yo4ql5fayotkuvw"
+            }
+          },
+          {
+            "chain": {
+              "/": "bafyriqe3zxf5g4ifgqhea5zozxpdcfi5qcpkfpogtxzbizmmuxdjuzuq44a2cifbr7xplo4kcfsdz2c5pxfxektavrqxxb3nvbmclxz7qiz6e"
+            },
+            "value": {
+              "/": "bafyriqfporpydf3otcb2wkuwazptxfazx2aogj4oqixiidv3hancjybogcm3642ird4vnuul7iu67t3nvxhns7o5aey3nketncy24ss6fkukk"
+            }
+          }
+        ],
+        "payload": {
+          "pre": {
+            "/": {
+              "bytes": "FECrk5vR8+sJr5eSEQl7500ATa52OO+Ty1QwjI68pDtreaL6IMZgvZz4sg36EAYwmAEtXOrvtW7PdonwNoG00OeC"
+            }
+          },
+          "salt": {
+            "/": {
+              "bytes": "Hwy4/QjkvpCfe/lhzyHla4nJ1FRDGxrMlfYbIusZiGCFH3RhAFGo9kNnwh7sxDNnME4jBwyzeCmvfiGB1PWg1g"
+            }
+          },
+          "timestamp": "2024-10-31T20:03:00.551Z"
+        },
+        "source": "random.colorado.edu"
+      },
+      "signature": "eyJhbGciOiJSUzI1NiJ9.FEDiTMXTtWY3uHRrm3roFAzIKqXCdqhjBC_5qwfO7FNtYRM6WDpQNB1eHe8wy6kTpZbDOWEseWIRaQM03-DKR9mG.mX7nW6vBWMkgrGkR-ucUlpdAfGXmcP-_UoGRYPe8U9IXk6W9uA_0_UPr4yoJEXuMQE7gwnbNqvIPWPoXMhP6YeXYG3ZuTZ6jxxkjnrRTyCkhmBdrwpSO0XID8gsYMpMJs8Z-5DyWCi_OhcYDY_WUE3Md_5_FUJkcWAe-eby9pJlJBAYjRJ9j31EZ8Qt5QfL8ZBQd0qWfZxLreKTufrmH463UKsh3lZ7lhqLa1PbWbWzzVCKNASJgDlwP-paj60MbkDBe5y4A4b2MrsgZ4tL5YZPDOqpnRkl6Sr1BDWMjM0P0-o-qmAQWO3W0EDcSshQE3WB5bNSABoHQEp7SXKcl-mj-iYASgeKnb2ybZV7ilVtIbcgYP0cnQwm08t97SUm7Ai7LgN0SZ_43hWqJTU_DfofU8ktq4KdbdF3rajcQfZ-kPoV68FCdrubawvFL73MgHNlF9Q9AVr8trqLKZ08Hsl8T0E1GRzVcLrekgoKiPdiGUF70ReQL1NjrGInm3ETMaTtpiyHceJhAkCmdPP9ChnZP81di27jF-K2roh5AKI-wjShbIszhV_r78TX2ZsJ2o_qxyGvHtE8itWHaN3IP_VJpv0BA35_nN6hT_gY5AFD0xm-Q2N2GDfH5zzyS6aXTGMRjJibpsN_l8Bc-h1OgJWnigxLboZk2YwpOBeL-JUU"
+    }
   }
 }
-})
+
+mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s/pulses/latest', latestPulse)
+mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s/pulses/bafyriqd4ppudk6na3lq5qzelkgwcc2xglsdz52icgn6myuwdxaaalwztgbqekegmr7hku42jzdcyvg4aqbylp5oxyweweozrj4wug7vg5pxdu', prevPulse)
+
+mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s/pulses/534323', latestPulse)
+mockFetch('https://random.colorado.edu/api/chains/bafyriqci6f3st2mg7gq733ho4zvvth32zpy2mtiylixwmhoz6d627eo3jfpmbxepe54u2zdvymonq5sp3armtm4rodxsynsirr5g3xsbd3q4s/pulses/534322', prevPulse)
 
 mockFetch('https://api.entwine.me/chains/bafyriqa5k2d3t3r774geicueaed2wc2fosjwqeexfhwbptfgq7rcn5mwucnhfeuxu2nxbrch3rl6yqjlozhuswo5ln3xwjm35iftt3tpqlcgs', {
   headers: { 'Content-Type': 'application/json' },

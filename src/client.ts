@@ -134,7 +134,7 @@ export class Client {
     return {
       chain,
       pulse,
-      prev
+      prev,
     }
   }
 
@@ -161,11 +161,28 @@ export class Client {
   }
 
   /**
-   * Get the latest randomness
+   * Get the latest randomness or the randomness for a specific round
    */
-  async randomness(){
-    await this.refresh()
-    return this._latest?.randomness
+  async randomness(round?: number): Promise<ByteHelper | null> {
+    if (round == 0) { throw new Error('The 0th round never produces valid randomness') }
+    if (round){
+      const { chain, pulse: latest, prev } = await this.fetchPulsePair(round)
+      if (!latest) {
+        throw new Error('Could not fetch latest pulse')
+      }
+      if (!prev) {
+        throw new Error('Previous pulse could not be retrieved')
+      }
+      if (latest.value.content.index !== round) {
+        throw new Error(`Server returned incorrect round. Expected ${round}, got ${latest.value.content.index}`)
+      }
+      const randomness = await extractRandomness(latest, chain, prev)
+      const rand = byteHelper(randomness, latest.value.content.payload.timestamp)
+      return rand
+    } else {
+      await this.refresh()
+      return this._latest?.randomness ?? null
+    }
   }
 
   /**

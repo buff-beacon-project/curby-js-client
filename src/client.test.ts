@@ -25,3 +25,9 @@ test('list of 8 bit numbers', async () => {
   expect(Array.from(numbers!)).toHaveLength(512 / 8)
   expect(Array.from(numbers!).every((n) => n >= 0 && n < 256)).toBe(true)
 })
+
+test('randomness from round 534323' , async () => {
+  const client = Client.create({ url })
+  const randomness = await client.randomness(534323)
+  expect(randomness).toBeDefined()
+})
