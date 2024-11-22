@@ -22,7 +22,7 @@ import { BitReader, unfoldBitstream } from '@buff-beacon-project/rand-utils'
  * // shuffled = [3, 1, 5, 2, 4]
  * ```
  */
-export type ByteHelper = {
+export interface ByteHelper {
   /**
    * The unix timestamp of the randomness
    */
@@ -53,6 +53,10 @@ export type ByteHelper = {
    * See {@link ByteHelper.bits} for an example
    */
   signedBits(n: number): Generator<number>,
+  /**
+   * The BitStream for the randomness
+   */
+  stream(): BitStream,
   /**
    * The a BitReader for the randomness
    *
@@ -132,6 +136,9 @@ export function byteHelper(bytes: Uint8Array, isoTimestamp: string): ByteHelper 
     },
     signedBits(n: number) {
       return unfold((reader) => reader.readBits(n, true))
+    },
+    stream(){
+      return br.stream()
     },
     reader: () => BitReader.from(bytes),
     maxShuffleLength: br.maxShuffleLength,
