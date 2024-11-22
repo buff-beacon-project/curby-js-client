@@ -2,7 +2,7 @@
 
 This is the official client library for the [CURBy Project](https://random.colorado.edu). It fetches and validates both the regular randomness chain and the DIRNG chain.
 
-## Installation
+## Quickstart
 
 ```sh
 npm install @buff-beacon-project/curby-client
@@ -22,4 +22,7 @@ const latest = await dirng.latest()
 console.log(`Got info for round ${latest.round}. Stage is ${latest.stage}`)
 ```
 
-See [docs/](./docs) folder for API docs.
+## Documentation
+
+- [API Documentation](https://curby.gitbook.io/curby-js-client)
+- [CURBy Documentation](https://random.colorado.edu/)

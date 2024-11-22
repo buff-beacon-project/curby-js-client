@@ -16,6 +16,12 @@
   "readme": "none",
   "entryFileName": "index.md",
   "out": "./docs/",
+  "indexFormat": "table",
+  "parametersFormat": "table",
+  "interfacePropertiesFormat": "table",
+  "classPropertiesFormat": "table",
+  "typeDeclarationFormat": "table",
+  "propertyMembersFormat": "table",
   "exclude": [
     "*.test.ts"
   ],
