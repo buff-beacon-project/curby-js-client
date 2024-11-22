@@ -28,9 +28,9 @@ Create a new client
 
 #### Parameters
 
-• **options?**: [`DIRNGClientOptions`](../type-aliases/DIRNGClientOptions.md)
-
-The options for the client
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | [`DIRNGClientOptions`](../type-aliases/DIRNGClientOptions.md) | The options for the client |
 
 #### Returns
 
@@ -38,7 +38,7 @@ The options for the client
 
 #### Defined in
 
-[src/dirng.ts:407](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L407)
+[src/dirng.ts:407](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L407)
 
 ## Methods
 
@@ -50,7 +50,9 @@ Fetch and validate the round data for a round
 
 #### Parameters
 
-• **round?**: `number` \| `"latest"` \| `"pending"`
+| Parameter | Type |
+| ------ | ------ |
+| `round`? | `number` \| `"latest"` \| `"pending"` |
 
 #### Returns
 
@@ -58,7 +60,7 @@ Fetch and validate the round data for a round
 
 #### Defined in
 
-[src/dirng.ts:470](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L470)
+[src/dirng.ts:470](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L470)
 
 ***
 
@@ -72,7 +74,9 @@ Will validate the hash of the data
 
 #### Parameters
 
-• **round**: [`RoundData`](../type-aliases/RoundData.md)
+| Parameter | Type |
+| ------ | ------ |
+| `round` | [`RoundData`](../type-aliases/RoundData.md) |
 
 #### Returns
 
@@ -80,7 +84,7 @@ Will validate the hash of the data
 
 #### Defined in
 
-[src/dirng.ts:446](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L446)
+[src/dirng.ts:446](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L446)
 
 ***
 
@@ -94,7 +98,9 @@ Will validate the hash of the parameters
 
 #### Parameters
 
-• **round**: [`RoundData`](../type-aliases/RoundData.md)
+| Parameter | Type |
+| ------ | ------ |
+| `round` | [`RoundData`](../type-aliases/RoundData.md) |
 
 #### Returns
 
@@ -102,7 +108,7 @@ Will validate the hash of the parameters
 
 #### Defined in
 
-[src/dirng.ts:422](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L422)
+[src/dirng.ts:422](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L422)
 
 ***
 
@@ -118,23 +124,23 @@ Get the latest round data
 
 #### Defined in
 
-[src/dirng.ts:523](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L523)
+[src/dirng.ts:523](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L523)
 
 ***
 
 ### randomness()
 
-> **randomness**(): `Promise`\<[`ByteHelper`](../type-aliases/ByteHelper.md)\>
+> **randomness**(): `Promise`\<[`ByteHelper`](../interfaces/ByteHelper.md)\>
 
 Get the latest randomness
 
 #### Returns
 
-`Promise`\<[`ByteHelper`](../type-aliases/ByteHelper.md)\>
+`Promise`\<[`ByteHelper`](../interfaces/ByteHelper.md)\>
 
 #### Defined in
 
-[src/dirng.ts:515](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L515)
+[src/dirng.ts:515](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L515)
 
 ***
 
@@ -150,7 +156,7 @@ Refresh the internal state of the client
 
 #### Defined in
 
-[src/dirng.ts:502](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L502)
+[src/dirng.ts:502](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L502)
 
 ***
 
@@ -162,7 +168,9 @@ Wait for the next round
 
 #### Parameters
 
-• **\_\_namedParameters**: [`WaitOptions`](../type-aliases/WaitOptions.md) = `{}`
+| Parameter | Type |
+| ------ | ------ |
+| `__namedParameters` | [`WaitOptions`](../type-aliases/WaitOptions.md) |
 
 #### Returns
 
@@ -170,7 +178,7 @@ Wait for the next round
 
 #### Defined in
 
-[src/dirng.ts:531](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L531)
+[src/dirng.ts:531](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L531)
 
 ***
 
@@ -182,9 +190,9 @@ Watch for new rounds
 
 #### Parameters
 
-• **options?**: [`WaitOptions`](../type-aliases/WaitOptions.md)
-
-The options for waiting
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `options`? | [`WaitOptions`](../type-aliases/WaitOptions.md) | The options for waiting |
 
 #### Returns
 
@@ -200,7 +208,7 @@ for await (const round of client.watch()){
 
 #### Defined in
 
-[src/dirng.ts:568](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L568)
+[src/dirng.ts:568](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L568)
 
 ***
 
@@ -212,7 +220,9 @@ Create a new client
 
 #### Parameters
 
-• **options?**: [`DIRNGClientOptions`](../type-aliases/DIRNGClientOptions.md)
+| Parameter | Type |
+| ------ | ------ |
+| `options`? | [`DIRNGClientOptions`](../type-aliases/DIRNGClientOptions.md) |
 
 #### Returns
 
@@ -220,4 +230,4 @@ Create a new client
 
 #### Defined in
 
-[src/dirng.ts:399](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L399)
+[src/dirng.ts:399](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L399)

@@ -12,4 +12,4 @@ The base URL for the CURBy API
 
 ## Defined in
 
-[src/common.ts:5](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/common.ts#L5)
+[src/common.ts:5](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/common.ts#L5)

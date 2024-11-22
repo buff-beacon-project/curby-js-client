@@ -6,20 +6,21 @@
 
 # Function: byteHelper()
 
-> **byteHelper**(`bytes`, `isoTimestamp`): [`ByteHelper`](../type-aliases/ByteHelper.md)
+> **byteHelper**(`bytes`, `isoTimestamp`): [`ByteHelper`](../interfaces/ByteHelper.md)
 
-Create a [ByteHelper](../type-aliases/ByteHelper.md) from a set of bytes and a timestamp
+Create a [ByteHelper](../interfaces/ByteHelper.md) from a set of bytes and a timestamp
 
 ## Parameters
 
-• **bytes**: `Uint8Array`
-
-• **isoTimestamp**: `string`
+| Parameter | Type |
+| ------ | ------ |
+| `bytes` | `Uint8Array` |
+| `isoTimestamp` | `string` |
 
 ## Returns
 
-[`ByteHelper`](../type-aliases/ByteHelper.md)
+[`ByteHelper`](../interfaces/ByteHelper.md)
 
 ## Defined in
 
-[src/byte-helper.ts:118](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/byte-helper.ts#L118)
+[src/byte-helper.ts:122](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/byte-helper.ts#L122)

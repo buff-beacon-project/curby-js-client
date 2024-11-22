@@ -12,9 +12,9 @@ Time until next rng pulse in milliseconds
 
 ## Parameters
 
-• **obj?**: `null` \| `string` \| `number` \| `Pulse` \| `object`
-
-A timestamp, pulse, or object with a timestamp property
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `obj`? | `null` \| `string` \| `number` \| `Pulse` \| `object` | A timestamp, pulse, or object with a timestamp property |
 
 ## Returns
 
@@ -24,4 +24,4 @@ Time until next pulse in milliseconds
 
 ## Defined in
 
-[src/timing.ts:12](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/timing.ts#L12)
+[src/timing.ts:12](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/timing.ts#L12)

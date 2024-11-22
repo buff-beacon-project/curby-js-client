@@ -12,9 +12,10 @@ Validate the ordering of the seed pulse
 
 ## Parameters
 
-• **round**: [`RoundData`](../type-aliases/RoundData.md)
-
-• **resolver**: `Resolver`
+| Parameter | Type |
+| ------ | ------ |
+| `round` | [`RoundData`](../type-aliases/RoundData.md) |
+| `resolver` | `Resolver` |
 
 ## Returns
 
@@ -22,4 +23,4 @@ Validate the ordering of the seed pulse
 
 ## Defined in
 
-[src/dirng.ts:239](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L239)
+[src/dirng.ts:239](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L239)

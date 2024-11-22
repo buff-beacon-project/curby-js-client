@@ -12,11 +12,11 @@ Check if a precommitment value is valid
 
 ## Parameters
 
-• **pulse**: `Pulse`
-
-• **previous**: `Pulse`
-
-• **hasher**: `Hasher`\<`"sha3-512"`, `20`\> = `sha3512`
+| Parameter | Type | Default value |
+| ------ | ------ | ------ |
+| `pulse` | `Pulse` | `undefined` |
+| `previous` | `Pulse` | `undefined` |
+| `hasher` | `Hasher`\<`"sha3-512"`, `20`\> | `sha3512` |
 
 ## Returns
 
@@ -24,4 +24,4 @@ Check if a precommitment value is valid
 
 ## Defined in
 
-[src/extract-randomness.ts:83](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/extract-randomness.ts#L83)
+[src/extract-randomness.ts:83](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/extract-randomness.ts#L83)

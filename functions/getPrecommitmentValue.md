@@ -12,11 +12,11 @@ Get the precommitment value for a pulse
 
 ## Parameters
 
-• **salt**: `Uint8Array`
-
-• **previous**: `Pulse`
-
-• **hasher**: `Hasher`\<`"sha3-512"`, `20`\> = `sha3512`
+| Parameter | Type | Default value |
+| ------ | ------ | ------ |
+| `salt` | `Uint8Array` | `undefined` |
+| `previous` | `Pulse` | `undefined` |
+| `hasher` | `Hasher`\<`"sha3-512"`, `20`\> | `sha3512` |
 
 ## Returns
 
@@ -24,4 +24,4 @@ Get the precommitment value for a pulse
 
 ## Defined in
 
-[src/extract-randomness.ts:73](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/extract-randomness.ts#L73)
+[src/extract-randomness.ts:73](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/extract-randomness.ts#L73)

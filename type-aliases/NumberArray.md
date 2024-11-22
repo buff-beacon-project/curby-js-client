@@ -12,4 +12,4 @@ A type for arrays of numbers
 
 ## Defined in
 
-[src/extract-randomness.ts:27](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/extract-randomness.ts#L27)
+[src/extract-randomness.ts:27](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/extract-randomness.ts#L27)

@@ -20,9 +20,10 @@ An error for when a precommitment value is invalid
 
 #### Parameters
 
-• **msg**: `string` = `'Invalid Precommitment Value'`
-
-• **options**: `any` = `{}`
+| Parameter | Type | Default value |
+| ------ | ------ | ------ |
+| `msg` | `string` | `'Invalid Precommitment Value'` |
+| `options` | `any` | `{}` |
 
 #### Returns
 
@@ -34,107 +35,18 @@ An error for when a precommitment value is invalid
 
 #### Defined in
 
-[src/extract-randomness.ts:13](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/extract-randomness.ts#L13)
+[src/extract-randomness.ts:13](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/extract-randomness.ts#L13)
 
 ## Properties
 
-### cause?
-
-> `optional` **cause**: `unknown`
-
-#### Inherited from
-
-`Error.cause`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es2022.error.d.ts:24
-
-***
-
-### message
-
-> **message**: `string`
-
-#### Inherited from
-
-`Error.message`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1077
-
-***
-
-### name
-
-> **name**: `string`
-
-#### Inherited from
-
-`Error.name`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1076
-
-***
-
-### stack?
-
-> `optional` **stack**: `string`
-
-#### Inherited from
-
-`Error.stack`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1078
-
-***
-
-### prepareStackTrace()?
-
-> `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
-
-Optional override for formatting stack traces
-
-#### Parameters
-
-• **err**: `Error`
-
-• **stackTraces**: `CallSite`[]
-
-#### Returns
-
-`any`
-
-#### See
-
-https://v8.dev/docs/stack-trace-api#customizing-stack-traces
-
-#### Inherited from
-
-`Error.prepareStackTrace`
-
-#### Defined in
-
-node\_modules/@types/node/globals.d.ts:28
-
-***
-
-### stackTraceLimit
-
-> `static` **stackTraceLimit**: `number`
-
-#### Inherited from
-
-`Error.stackTraceLimit`
-
-#### Defined in
-
-node\_modules/@types/node/globals.d.ts:30
+| Property | Modifier | Type | Description | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ | ------ | ------ |
+| `cause?` | `public` | `unknown` | - | `Error.cause` | node\_modules/typescript/lib/lib.es2022.error.d.ts:24 |
+| `message` | `public` | `string` | - | `Error.message` | node\_modules/typescript/lib/lib.es5.d.ts:1077 |
+| `name` | `public` | `string` | - | `Error.name` | node\_modules/typescript/lib/lib.es5.d.ts:1076 |
+| `stack?` | `public` | `string` | - | `Error.stack` | node\_modules/typescript/lib/lib.es5.d.ts:1078 |
+| `prepareStackTrace?` | `static` | (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any` | Optional override for formatting stack traces **See** https://v8.dev/docs/stack-trace-api#customizing-stack-traces | `Error.prepareStackTrace` | node\_modules/@types/node/globals.d.ts:28 |
+| `stackTraceLimit` | `static` | `number` | - | `Error.stackTraceLimit` | node\_modules/@types/node/globals.d.ts:30 |
 
 ## Methods
 
@@ -148,9 +60,10 @@ Create .stack property on a target object
 
 ##### Parameters
 
-• **targetObject**: `object`
-
-• **constructorOpt?**: `Function`
+| Parameter | Type |
+| ------ | ------ |
+| `targetObject` | `object` |
+| `constructorOpt`? | `Function` |
 
 ##### Returns
 
@@ -172,9 +85,10 @@ Create .stack property on a target object
 
 ##### Parameters
 
-• **targetObject**: `object`
-
-• **constructorOpt?**: `Function`
+| Parameter | Type |
+| ------ | ------ |
+| `targetObject` | `object` |
+| `constructorOpt`? | `Function` |
 
 ##### Returns
 

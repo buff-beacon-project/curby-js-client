@@ -12,18 +12,11 @@ A latest pulse pair
 
 ## Type declaration
 
-### latest?
-
-> `optional` **latest**: `Pulse` \| `null`
-
-The latest pulse
-
-### prev?
-
-> `optional` **prev**: `Pulse` \| `null`
-
-The previous pulse
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `latest`? | `Pulse` \| `null` | The latest pulse | [src/client.ts:78](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/client.ts#L78) |
+| `prev`? | `Pulse` \| `null` | The previous pulse | [src/client.ts:80](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/client.ts#L80) |
 
 ## Defined in
 
-[src/client.ts:76](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/client.ts#L76)
+[src/client.ts:76](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/client.ts#L76)

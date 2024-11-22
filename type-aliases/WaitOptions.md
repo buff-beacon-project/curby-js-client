@@ -12,17 +12,10 @@ The options for waiting
 
 ## Type declaration
 
-### signal?
-
-> `optional` **signal**: `AbortSignal`
-
-An optional abort signal
-
-### timeout?
-
-> `optional` **timeout**: `number`
-
-The maximum time to wait
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `signal`? | `AbortSignal` | An optional abort signal | [src/common.ts:15](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/common.ts#L15) |
+| `timeout`? | `number` | The maximum time to wait | [src/common.ts:19](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/common.ts#L19) |
 
 ## See
 
@@ -30,4 +23,4 @@ The maximum time to wait
 
 ## Defined in
 
-[src/common.ts:11](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/common.ts#L11)
+[src/common.ts:11](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/common.ts#L11)

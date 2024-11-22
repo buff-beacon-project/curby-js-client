@@ -12,24 +12,12 @@ A validation result
 
 ## Type declaration
 
-### data?
-
-> `optional` **data**: `any`
-
-Additional data for the validation
-
-### ok
-
-> **ok**: `boolean`
-
-Whether the validation passed
-
-### reason?
-
-> `optional` **reason**: `string`
-
-An optional reason for failure
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `data`? | `any` | Additional data for the validation | [src/dirng.ts:33](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L33) |
+| `ok` | `boolean` | Whether the validation passed | [src/dirng.ts:25](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L25) |
+| `reason`? | `string` | An optional reason for failure | [src/dirng.ts:29](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L29) |
 
 ## Defined in
 
-[src/dirng.ts:21](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L21)
+[src/dirng.ts:21](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L21)

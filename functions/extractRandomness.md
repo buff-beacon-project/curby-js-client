@@ -12,11 +12,11 @@ Extract randomness from a pulse on an RNG chain
 
 ## Parameters
 
-• **pulse**: `Pulse`
-
-• **chain**: `Chain`
-
-• **previous**: `Pulse`
+| Parameter | Type |
+| ------ | ------ |
+| `pulse` | `Pulse` |
+| `chain` | `Chain` |
+| `previous` | `Pulse` |
 
 ## Returns
 
@@ -24,4 +24,4 @@ Extract randomness from a pulse on an RNG chain
 
 ## Defined in
 
-[src/extract-randomness.ts:103](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/extract-randomness.ts#L103)
+[src/extract-randomness.ts:103](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/extract-randomness.ts#L103)

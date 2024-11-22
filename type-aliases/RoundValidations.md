@@ -12,24 +12,12 @@ A round's validations
 
 ## Type declaration
 
-### bellResponse
-
-> **bellResponse**: [`Validation`](Validation.md) \| `null`
-
-The validation of the presence of a response pulse on the bell chain
-
-### seed
-
-> **seed**: [`Validation`](Validation.md) \| `null`
-
-The validation of the seed value
-
-### seedOrdering
-
-> **seedOrdering**: [`Validation`](Validation.md) \| `null`
-
-The validation of the ordering of the seed pulse
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `bellResponse` | [`Validation`](Validation.md) \| `null` | The validation of the presence of a response pulse on the bell chain | [src/dirng.ts:45](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L45) |
+| `seed` | [`Validation`](Validation.md) \| `null` | The validation of the seed value | [src/dirng.ts:53](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L53) |
+| `seedOrdering` | [`Validation`](Validation.md) \| `null` | The validation of the ordering of the seed pulse | [src/dirng.ts:49](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L49) |
 
 ## Defined in
 
-[src/dirng.ts:41](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L41)
+[src/dirng.ts:41](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L41)

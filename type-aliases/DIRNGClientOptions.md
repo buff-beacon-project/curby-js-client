@@ -12,28 +12,12 @@ The options for the DIRNG client
 
 ## Type declaration
 
-### fetchOptions?
-
-> `optional` **fetchOptions**: `FetchOptions`
-
-The underlying fetch options
-
-#### See
-
-[https://github.com/kwhitley/itty-fetcher](https://github.com/kwhitley/itty-fetcher)
-
-### url?
-
-> `optional` **url**: `string`
-
-Alternate URL for the CURBy API
-
-### validateSeed?
-
-> `optional` **validateSeed**: `boolean`
-
-Whether to validate the seed value (default: false). Requires fetching the parameters for each round
+| Name | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `fetchOptions`? | `FetchOptions` | The underlying fetch options **See** [https://github.com/kwhitley/itty-fetcher](https://github.com/kwhitley/itty-fetcher) | [src/dirng.ts:373](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L373) |
+| `url`? | `string` | Alternate URL for the CURBy API | [src/dirng.ts:363](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L363) |
+| `validateSeed`? | `boolean` | Whether to validate the seed value (default: false). Requires fetching the parameters for each round | [src/dirng.ts:367](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L367) |
 
 ## Defined in
 
-[src/dirng.ts:359](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L359)
+[src/dirng.ts:359](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/dirng.ts#L359)

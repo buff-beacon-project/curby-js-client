@@ -12,13 +12,10 @@ Wait a specified number of milliseconds
 
 ## Parameters
 
-• **dt**: `number`
-
-The number of milliseconds to wait
-
-• **signal?**: `AbortSignal`
-
-An optional abort signal
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `dt` | `number` | The number of milliseconds to wait |
+| `signal`? | `AbortSignal` | An optional abort signal |
 
 ## Returns
 
@@ -39,4 +36,4 @@ console.log('One second has passed')
 
 ## Defined in
 
-[src/timing.ts:44](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/timing.ts#L44)
+[src/timing.ts:44](https://github.com/buff-beacon-project/curby-js-client/blob/95397f5e9fcc8ad57ef410c54473862e0b83bc59/src/timing.ts#L44)
