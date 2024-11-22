@@ -11,7 +11,7 @@ import { WaitOptions } from './common'
 /**
  * The options for the Rng Client
  *
- * @group PRNG
+ * @group Classical RNG
  */
 export type ClientOptions = {
   /**
@@ -33,7 +33,7 @@ export type ClientOptions = {
 /**
  * A randomness round
  *
- * @group PRNG
+ * @group Classical RNG
  */
 export type RandomnessRound = {
   /**
@@ -57,7 +57,7 @@ export type RandomnessRound = {
 /**
  * A pair of sequential pulses
  *
- * @group PRNG
+ * @group Classical RNG
  */
 export type PulsePair = {
   /** The chain */
@@ -71,7 +71,7 @@ export type PulsePair = {
 /**
  * A latest pulse pair
  *
- * @group PRNG
+ * @group Classical RNG
  */
 export type LatestPulsePair = {
   /** The latest pulse */
@@ -83,7 +83,7 @@ export type LatestPulsePair = {
 /**
  * A client for fetching randomness from the CURBy RNG chain
  *
- * @group PRNG
+ * @group Classical RNG
  * @example
  * ```ts
  * import { Client } from '@buff-beacon-project/curby-client'
