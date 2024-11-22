@@ -30,6 +30,14 @@ console.log(`Got info for round ${latest.round}. Stage is ${latest.stage}`)
 - [NumberArray](type-aliases/NumberArray.md)
 - [WaitOptions](type-aliases/WaitOptions.md)
 
+## Classical RNG
+
+- [Client](classes/Client.md)
+- [ClientOptions](type-aliases/ClientOptions.md)
+- [LatestPulsePair](type-aliases/LatestPulsePair.md)
+- [PulsePair](type-aliases/PulsePair.md)
+- [RandomnessRound](type-aliases/RandomnessRound.md)
+
 ## Constants
 
 - [CHAINS](variables/CHAINS.md)
@@ -47,14 +55,6 @@ console.log(`Got info for round ${latest.round}. Stage is ${latest.stage}`)
 ## Errors
 
 - [InvalidPrecom](classes/InvalidPrecom.md)
-
-## PRNG
-
-- [Client](classes/Client.md)
-- [ClientOptions](type-aliases/ClientOptions.md)
-- [LatestPulsePair](type-aliases/LatestPulsePair.md)
-- [PulsePair](type-aliases/PulsePair.md)
-- [RandomnessRound](type-aliases/RandomnessRound.md)
 
 ## Utilities
 

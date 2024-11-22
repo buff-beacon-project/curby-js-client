@@ -24,4 +24,4 @@ Convert pulses to round data
 
 ## Defined in
 
-[src/dirng.ts:308](https://github.com/buff-beacon-project/curby-js-client/blob/07a2ea08c8e0ca63b47f1d08219657d53af485a2/src/dirng.ts#L308)
+[src/dirng.ts:308](https://github.com/buff-beacon-project/curby-js-client/blob/ab22d721ec98514e549c65f2310e066d4022d353/src/dirng.ts#L308)
