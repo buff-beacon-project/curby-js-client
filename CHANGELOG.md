@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.4...v1.2.0) (2024-11-22)
+
+
+### Features
+
+* expose bitstream in ByteHelper ([ae07263](https://github.com/buff-beacon-project/curby-js-client/commit/ae072631527663c9e90541bf2f6237e585a540c8))
+* randomness method accepts round number ([6482f06](https://github.com/buff-beacon-project/curby-js-client/commit/6482f06ac85ca735ea2a8b56c7ee4b1f04229cfe))
+
 ## [1.1.4](https://github.com/buff-beacon-project/curby-js-client/compare/v1.1.3...v1.1.4) (2024-11-08)
 
 
